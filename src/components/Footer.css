@@ -1,0 +1,48 @@
+.footer-navbar {
+    overflow: hidden;
+    margin: 0 24px;
+    font-size: 13px;
+    letter-spacing: .5px;
+    text-align: left;
+    color: #b4b9c2;
+    display: flex;
+    width: 100%;
+    list-style-type: none;
+}
+
+.footer {
+    white-space: nowrap;
+    background-color: #33353b;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    line-height: 50px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
+}
+
+.footer-navbar > li {
+    display: inline-block;
+    margin: auto 20px;
+    vertical-align: middle;
+}
+
+.footer-navbar > li:first-child {
+    font-weight: 700;
+}
+
+.footer-app {
+    padding: 0 47px;
+    font-size: 13px;
+    background-color: #474a51;
+    display: flex;
+    min-width: 170px;
+    font-weight: 700;
+}
+
+.footer-app > a {
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    margin: auto;
+}

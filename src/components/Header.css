@@ -1,0 +1,104 @@
+.header {
+    width: 100%;
+    padding-bottom: 76px;
+    background: url(https://s.imgur.com/desktop-assets/desktop-assets/homebg.f51d3f34235dea1b7cdd.png) no-repeat;
+    background-size: 100% 100%;
+    margin: 0;
+}
+
+.navbar-container {
+    display: flex;
+    padding: 15px;
+}
+
+.navbar-container-left {
+    min-width: 360px;
+    display: inline-flex;
+}
+
+.navbar-container-left > Button {
+    text-align: center;
+    height: 35px;
+    padding: 7px 14px 10px 9px;
+    touch-action: manipulation;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 700;
+    position: relative;
+    width: auto;
+    background-color: #1bb76e;
+    box-shadow: 0 6px 10px 0 rgba(27,28,30,.31);
+    color: #fff;
+    white-space: nowrap;
+    margin: auto 20px;
+}
+
+.navbar-container-center {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.search-bar {
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: relative;
+    max-height: 36px;
+    float: right;
+    width: 100%;
+    max-width: 550px;
+    display: flex;
+
+}
+
+.search-bar-textinput {
+    background: rgba(255,255,255,.25);
+    border: 1px solid transparent;
+    padding: 8px 35px 8px 10px;
+    border-radius: 3px;
+    width: 100%;
+    outline: 0;
+    opacity: .8;
+    max-height: 36px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .4px;
+    color: #fff;
+}
+
+.search-bar > button {
+    background: rgba(255,255,255,.25);
+}
+
+.navbar-container-right {
+    display: inline-flex;
+    justify-content: flex-end;
+    min-width: 280px;
+    position: relative;
+}
+
+.head-message {
+    font-size: 24px;
+    font-family: "Proxima Nova ExtraBold","Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: .6px;
+    color: #aed8ea;
+    text-align: center;
+    margin-top: 12px;
+    min-height: 34px;
+    position: relative;
+    font-weight: bold;
+}
+
+.navbar-container-right > Button {
+    background-color: #6432f9;
+    box-shadow: 0 3px 4px rgba(0,0,0,.12);
+    padding: 0 10px 0 9px;
+    overflow: hidden;
+    margin: auto 0;
+    line-height: 35px;
+    margin-left: 10px;
+}
