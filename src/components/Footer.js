@@ -17,7 +17,7 @@ export default function Footer() {
                 <li>Blog</li>
                 <li>Wellness</li>
                 <li>CCPA</li>
-                <li>API</li>
+                <li><a href="https://apidocs.imgur.com/">API</a></li>
             </ul>
             <div className="footer-app">
                 <a href="https://imgurinc.com/mobileapps">Get the App</a>

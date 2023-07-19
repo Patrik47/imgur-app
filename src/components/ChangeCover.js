@@ -8,37 +8,37 @@ export default function ChangeCover() {
             <div className="cover-sort">
                 <span className="cover-sort-wrapper">
                     <div className="dropdown-title">
-                        <span style={{marginRight: 5 + 'px'}}>Highest Scoring</span>
+                        <span style={{marginRight: 5 + 'px'}}>HIGHEST SCORING</span>
                         <MdArrowDropDown size={20} />
                     </div>
                     <div className="dropdown-menu">
-                        <svg width="24" height="8" viewBox="0 0 24 8" class="dropdown-triangle" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="24" height="8" viewBox="0 0 24 8" className="dropdown-triangle" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <title>icon</title>
                             <path fill="#53565d" d="M10.3359 1.1094C11.3436 0.437601 12.6564 0.437601 13.6641 1.1094L24 8L3.05823e-09 8L10.3359 1.1094Z"></path>
                         </svg>
                         <div className="dropdown-list">
-                            <div className="dropdown-option">Most Viral</div>
-                            <div className="dropdown-option">User Submitted</div>
-                            <div className="dropdown-option">Highest Scoring</div>
+                            <div className="dropdown-option">MOST VIRAL</div>
+                            <div className="dropdown-option">USER SUBMITTED</div>
+                            <div className="dropdown-option">HIGHEST SUBMITTED</div>
                         </div>
                     </div>
                 </span>
                 <span className="cover-sort-wrapper">
                     <div className="dropdown-title">
-                        <span style={{marginRight: 5 + 'px'}}>Today</span>
+                        <span style={{marginRight: 5 + 'px'}}>TODAY</span>
                         <MdArrowDropDown size={20} />
                     </div>
                     <div className="dropdown-menu">
-                        <svg width="24" height="8" viewBox="0 0 24 8" class="dropdown-triangle" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="24" height="8" viewBox="0 0 24 8" className="dropdown-triangle" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <title>icon</title>
                             <path fill="#53565d" d="M10.3359 1.1094C11.3436 0.437601 12.6564 0.437601 13.6641 1.1094L24 8L3.05823e-09 8L10.3359 1.1094Z"></path>
                         </svg>
                         <div className="dropdown-list">
-                            <div className="dropdown-option">Today</div>
-                            <div className="dropdown-option">Week</div>
-                            <div className="dropdown-option">Month</div>
-                            <div className="dropdown-option">Year</div>
-                            <div className="dropdown-option">All Time</div>
+                            <div className="dropdown-option">TODAY</div>
+                            <div className="dropdown-option">WEEK</div>
+                            <div className="dropdown-option">MONTH</div>
+                            <div className="dropdown-option">YEAR</div>
+                            <div className="dropdown-option">ALL TIME</div>
                         </div>
                     </div>
                 </span>

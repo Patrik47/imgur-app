@@ -4,9 +4,10 @@
     position: relative;
     height: 36px;
     min-width: 405px;
-    width: 1248px;
+    width: 80%;
+    min-width: 200px;
     bottom: -29px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .cover-sort {
