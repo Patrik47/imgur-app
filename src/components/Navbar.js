@@ -3,9 +3,10 @@ import "./Header.css";
 import logo from "../imgur-logo.png";
 import SearchBar from "./SearchBar";
 
-export default function Navbar() {
+export default function Navbar(props) {
+    console.log(props.background)
     return (
-        <div className="navbar-container">
+        <div className="navbar-container" style={{backgroundColor: props.background ? null : '#1d2951'}}>
             <div className="navbar-container-left">
                 <a href="http://localhost:3000/">
                     <img src={logo} alt="logo" width={94} height={36} onClick={() => window.location.href="/"}></img>

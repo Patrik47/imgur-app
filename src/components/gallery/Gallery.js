@@ -1,7 +1,12 @@
 import React from "react";
+import Navbar from "../Navbar";
+import Footer from "../Footer";
 
 export default function Gallery() {
     return (
-        <h1 style={{fontSize: 250, textAlign: 'center'}}>Hello World!</h1>
+        <div>
+            <Navbar background={false} />
+            <Footer />
+        </div>
     );
 }

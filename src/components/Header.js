@@ -8,10 +8,10 @@ import Tags from "./Tags";
 export default function Header() {
     return (
         <div className="header">
-            <Navbar />
+            <Navbar background={true}/>
             <Message />
             <Tags />
-            <div style={{marginBottom: 130 + 'px'}}></div>
+            <div style={{ marginBottom: 130 + 'px' }}></div>
             <ChangeCover />
         </div>
     );
