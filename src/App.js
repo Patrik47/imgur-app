@@ -1,16 +1,18 @@
-// import logo from './logo.svg';
 import './App.css';
-import Header from './components/Header';
-import Body from './components/Body';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import DefaultApp from './components/DefaultApp';
+import Gallery from './components/gallery/Gallery';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Body />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<DefaultApp />} />
+        <Route path='/gallery' element={<Gallery />} />
+        <Route path='*' element={<ErrorPage />} />
+      </Routes>
+    </Router>
   );
 }
 
