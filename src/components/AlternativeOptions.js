@@ -23,7 +23,6 @@ const highestScoringOptions = [
 ];
 
 export default function AlternativeOptions(props) {
-    console.log(props);
     if (props.mainSelectedOption === 'MOST VIRAL') {
         return (
             <div className="dropdown-list">

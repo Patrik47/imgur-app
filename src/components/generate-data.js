@@ -4,6 +4,7 @@ export default function generatePosts() {
     let posts = [];
     for (let i = 0; i < 320; i++) {
         posts.push({
+            "id": i,
             "title": faker.word.words(Math.floor(Math.random() * 3) + 5),
             "author": faker.person.fullName(),
             "device": faker.helpers.arrayElement(['Android', 'iPhone', 'Web']),

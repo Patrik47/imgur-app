@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<DefaultApp />} />
-        <Route path='/gallery' element={<Gallery />} />
+        <Route path='/gallery/:postID' element={<Gallery />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
     </Router>

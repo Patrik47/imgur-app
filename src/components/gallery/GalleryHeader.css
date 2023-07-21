@@ -1,0 +1,55 @@
+.gallery-title {
+    font-size: 28px;
+    line-height: 130%;
+    color: white;
+    overflow-wrap: break-word;
+    font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.title-row > span {
+    min-width: 20px;
+}
+
+.author-line {
+    display: flex;
+    justify-content: flex-start;
+    height: 32px;
+    margin: 16px 0 24px;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+    margin: 0 32px 0 12px;
+    flex-grow: 1;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+.author-name {
+    display: flex;
+    color: greenyellow;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 14px;
+    font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;
+    align-items: center;
+}
+
+.author-meta {
+    font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #b4b9c2;
+    font-size: 12px;
+    line-height: 12px;
+    margin-top: 4px;
+}
+
+.author-meta > span {
+    margin-right: 8px;
+}

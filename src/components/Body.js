@@ -4,6 +4,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import postsData from "../posts.json";
 
 class Body extends React.Component {
+
     constructor() {
         super();
         this.state = {
@@ -47,11 +48,11 @@ class Body extends React.Component {
                         next={this.fetchData}
                         hasMore={this.state.isThereMore}
                         loader={<h4>Loading...</h4>}>
-                        {this.state.posts.map((post, i) => (
-                            <div key={i} className="body-post">
+                        {this.state.posts.map((post) => (
+                            <div key={post.id} className="body-post">
                                 <div className="post-item-container">
                                     <div className="post-item-image">
-                                        <img src={post.image} alt="post" width={300} height={219}>
+                                        <img src={post.image} alt="post" width={300} height={219} onClick={() => window.location.href = "/gallery/" + post.id}>
                                         </img>
                                     </div>
                                     <div className="post-item-title-wrapper">

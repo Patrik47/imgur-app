@@ -4,7 +4,6 @@ import logo from "../imgur-logo.png";
 import SearchBar from "./SearchBar";
 
 export default function Navbar(props) {
-    console.log(props.background)
     return (
         <div className="navbar-container" style={{backgroundColor: props.background ? null : '#1d2951'}}>
             <div className="navbar-container-left">
@@ -21,7 +20,7 @@ export default function Navbar(props) {
                 <SearchBar />
             </div>
             <div className="navbar-container-right">
-                <button type="button" className="navbar-button" id="ad-free-button" onClick={() => window.location.href = "/gallery"}>Go Ad-Free</button>
+                <button type="button" className="navbar-button" id="ad-free-button">Go Ad-Free</button>
                 <button type="button" className="navbar-button" id="sign-in-button">Sign in</button>
                 <button type="button" className="navbar-button" id="sign-up-button">Sign up</button>
             </div>

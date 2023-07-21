@@ -1,0 +1,18 @@
+.gallery-content-wrapper {
+    display: block;
+    background-color: #1d2951;
+    /* height: 100vh; */
+}
+
+.gallery {
+    width: 80%;
+    max-width: 1216px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    padding-top: 24px;
+    margin: 0 auto;
+}
