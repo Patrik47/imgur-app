@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.css";
 import logo from "../imgur-logo.png";
 import SearchBar from "./SearchBar";
+import { Navigate } from "react-router-dom";
 
 export default function Navbar() {
     return (
@@ -20,7 +21,7 @@ export default function Navbar() {
                 <SearchBar />
             </div>
             <div className="navbar-container-right">
-                <button type="button" className="navbar-button" id="ad-free-button">Go Ad-Free</button>
+                <button type="button" className="navbar-button" id="ad-free-button" onClick={() => Navigate('gallery')}>Go Ad-Free</button>
                 <button type="button" className="navbar-button" id="sign-in-button">Sign in</button>
                 <button type="button" className="navbar-button" id="sign-up-button">Sign up</button>
             </div>

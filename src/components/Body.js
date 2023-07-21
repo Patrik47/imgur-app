@@ -1,12 +1,14 @@
 import React from "react";
 import "./Body.css";
-import generatePosts from './generate-data';
 import InfiniteScroll from "react-infinite-scroll-component";
+import postsData from "../posts.json";
 
 class Body extends React.Component {
     constructor() {
         super();
         this.state = {
+            allPosts: postsData,
+            startingPos: 0,
             posts: [],
             isThereMore: true
         }
@@ -16,16 +18,23 @@ class Body extends React.Component {
         this.fetchData();
     }
 
-    fetchData = (page) => {
-        let newPosts = [];
-        newPosts = generatePosts();
-        if (this.state.posts.length + newPosts.length === 32) {
+    fetchData = () => {
+        let newPosts = postsData.slice(this.state.startingPos, this.state.startingPos + 16);
+        if (this.state.posts.length + newPosts.length === this.state.allPosts.length) {
             this.setState({isThereMore: false});
         }
         this.setState({
-            posts: this.state.posts.concat(newPosts)
+            posts: this.state.posts.concat(newPosts),
+            startingPos: this.state.startingPos + 16
         });
-        // console.log(this.state.posts.length);
+    }
+
+    formatNumber = number => {
+        if (number < 1e3) return number;
+        if (number >= 1e3 && number < 1e6) return +(number / 1e3).toFixed(1) + "K";
+        if (number >= 1e6 && number < 1e9) return +(number / 1e6).toFixed(1) + "M";
+        if (number >= 1e9 && number < 1e12) return +(number / 1e9).toFixed(1) + "B";
+        if (number >= 1e12) return +(number / 1e12).toFixed(1) + "T";
     }
 
 
@@ -37,12 +46,7 @@ class Body extends React.Component {
                 dataLength={this.state.posts.length}
                 next={this.fetchData}
                 hasMore={this.state.isThereMore}
-                loader={<h4>Loading...</h4>}
-                endMessage={
-                    <p style={{ textAlign: 'center' }}>
-                        <b>Yay! You have seen it all</b>
-                    </p>
-                }>
+                loader={<h4>Loading...</h4>}>
                 { this.state.posts.map((post, i) => (
                     <div key={i} className="body-post">
                         <div className="post-item-container">
@@ -63,7 +67,7 @@ class Body extends React.Component {
                                                 </path>
                                             </svg>
                                         </div>
-                                        <div className="upvotes-number">{post.upvotes}</div>
+                                        <div className="upvotes-number">{this.formatNumber(post.upvotes)}</div>
                                     </div>
                                     <div className="post-item-info-comments">
                                         <svg width="16" height="16" viewBox="0 0 16 16" className="PostCommentsIcon" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -71,7 +75,7 @@ class Body extends React.Component {
                                             <path fill="currentColor" stroke="#ffffff" strokeWidth="0" d="M4.455 12.195l.367 1.105 1.037-.53c.266-.135.637-.412 1.039-.74.39-.319.872-.737 1.422-1.245h2.291a3.306 3.306 0 003.306-3.306V5.306A3.306 3.306 0 0010.611 2H5.306A3.306 3.306 0 002 5.306v2.656c0 1.34.933 2.461 2.185 2.75.008.172.025.335.046.479a6.622 6.622 0 00.168.803c.016.07.035.137.056.2z">
                                             </path>
                                         </svg>
-                                        <div className="comments-number">{post.number_of_comments}</div>
+                                        <div className="comments-number">{this.formatNumber(post.number_of_comments)}</div>
                                     </div>
                                     <div className="post-item-info-views">
                                         <svg width="16" height="16" viewBox="0 0 16 16" className="PostViewsIcon" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -79,7 +83,7 @@ class Body extends React.Component {
                                             <path d="M8 2.5C4.74998 2.5 2.30142 5.50267 1.27514 6.77517C0.925337 7.20917 0.908553 7.76483 1.2278 8.16583C2.22527 9.41833 4.6991 12.5 8 12.5C11.3686 12.5 13.8396 9.31133 14.796 8.0905C15.0769 7.732 15.0674 7.2535 14.7692 6.8755C13.7938 5.6395 11.3376 2.5 8 2.5ZM7.98224 9.33333C6.90897 9.33333 6.03887 8.51233 6.03887 7.5C6.03887 6.4875 6.90897 5.66667 7.98224 5.66667C9.05551 5.66667 9.92561 6.4875 9.92561 7.5C9.92561 8.51233 9.05551 9.33333 7.98224 9.33333Z" fill="currentColor">
                                             </path>
                                         </svg>
-                                        <div className="views-number">{post.views}</div>
+                                        <div className="views-number">{this.formatNumber(post.views)}</div>
                                     </div>
                                 </div>
                             </div>

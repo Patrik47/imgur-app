@@ -59,7 +59,6 @@
     z-index: 1000;
     right: -28px;
     padding-top: 8px;
-    /*display: none;*/
 }
 
 .dropdown-list {
@@ -84,6 +83,10 @@
     padding-right: 26px;
     text-align: left;
     white-space: nowrap;
+}
+
+.dropdown-option:hover {
+    background-color: #898989;
 }
 
 .dropdown-triangle {
