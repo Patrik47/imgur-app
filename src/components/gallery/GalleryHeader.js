@@ -1,6 +1,6 @@
 import React from "react";
 import "./GalleryHeader.css";
-import userLogo from "C:/Users/pvdoviak001/Downloads/abc/imgur-app/src/user-avatar.png";
+import userLogo from "../../user-avatar.png";
 import { useParams } from "react-router-dom";
 import returnPostData from "./returnPostData";
 
