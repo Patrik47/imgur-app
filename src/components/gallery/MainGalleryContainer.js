@@ -3,6 +3,7 @@ import ButtonsBar from "./ButtonsBar";
 import "./MainGallery.css"
 import GalleryHeader from "./GalleryHeader";
 import GalleryImage from "./GalleryImage";
+import GalleryComments from "./GalleryComments";
 
 export default function MainGalleryContainer() {
     return (
@@ -19,7 +20,7 @@ export default function MainGalleryContainer() {
                         <GalleryImage />
                     </div>
                     <div className="gallery-comments-list">
-
+                        <GalleryComments />
                     </div>
                 </div>
             </div>
