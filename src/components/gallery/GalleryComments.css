@@ -16,6 +16,10 @@
     position: relative;
 }
 
+.gallery-comment-wrapper:hover {
+    background-color: #4f5b83;
+}
+
 .gallery-comment-container {
     display: flex;
     flex-direction: column;

@@ -3,6 +3,8 @@ import "./GalleryHeader.css";
 import userLogo from "../../user-avatar.png";
 import { useParams } from "react-router-dom";
 import returnPostData from "./returnPostData";
+import formatTimeElapsed from "./formatTimeElapsed";
+import separateNumberDigitsWithComas from "./localeNumber";
 
 export default function GalleryHeader() {
     const params = useParams();
@@ -21,10 +23,10 @@ export default function GalleryHeader() {
                         <span>{post[0].author}</span>
                     </div>
                     <div className="author-meta">
-                        <span>{post[0].views} Views</span>
-                        <span> | </span>
-                        <span>{post[0].date}</span>
-                        <span> | </span>
+                        <span>{separateNumberDigitsWithComas(post[0].views)} Views</span>
+                        <span>•</span>
+                        <span>{formatTimeElapsed(post[0].date)}</span>
+                        <span>•</span>
                         <span>via</span>
                         <span>{post[0].device}</span>
                     </div>

@@ -41,3 +41,7 @@
     letter-spacing: .4px;
     color: #fff;
 }
+
+.search-bar-textinput::placeholder {
+    color: #fff;
+}
