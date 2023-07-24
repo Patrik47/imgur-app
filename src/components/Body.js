@@ -12,7 +12,7 @@ class Body extends React.Component {
             startingPos: 0,
             posts: [],
             isThereMore: true
-        }
+        };
     }
 
     componentDidMount() {

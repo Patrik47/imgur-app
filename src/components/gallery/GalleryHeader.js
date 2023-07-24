@@ -1,34 +1,30 @@
 import React from "react";
 import "./GalleryHeader.css";
 import userLogo from "../../user-avatar.png";
-import { useParams } from "react-router-dom";
-import returnPostData from "./returnPostData";
 import formatTimeElapsed from "./formatTimeElapsed";
 import separateNumberDigitsWithComas from "./localeNumber";
 
-export default function GalleryHeader() {
-    const params = useParams();
-    const post = returnPostData(Number(params.postID));
+export default function GalleryHeader(props) {
     return (
         <>
             <div className="gallery-title">
                 <div className="title-row">
-                    <span>{post[0].title}</span>
+                    <span>{props.data.title}</span>
                 </div>
             </div>
             <div className="author-line">
                 <img alt="author-avatar" src={userLogo}></img>
                 <div className="author-info">
                     <div className="author-name">
-                        <span>{post[0].author}</span>
+                        <span>{props.data.author}</span>
                     </div>
                     <div className="author-meta">
-                        <span>{separateNumberDigitsWithComas(post[0].views)} Views</span>
+                        <span>{separateNumberDigitsWithComas(props.data.views)} Views</span>
                         <span>•</span>
-                        <span>{formatTimeElapsed(post[0].date)}</span>
+                        <span>{formatTimeElapsed(props.data.date)}</span>
                         <span>•</span>
                         <span>via</span>
-                        <span>{post[0].device}</span>
+                        <span>{props.data.device}</span>
                     </div>
                 </div>
             </div>
