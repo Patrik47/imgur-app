@@ -96,6 +96,10 @@
     top: 0;
 }
 
+.change-appearance:hover {
+    cursor: pointer;
+}
+
 .img {
-    color: #b4b9c2;
+    stroke: white;
 }
