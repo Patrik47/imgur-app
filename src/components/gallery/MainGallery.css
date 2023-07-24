@@ -123,3 +123,15 @@
     flex-direction: column;
     justify-content: center;
 }
+
+#upvote-button:hover > svg > path {
+    stroke: #50c878;
+}
+
+#downvote-button:hover > svg > path {
+    stroke: #d35151;
+}
+
+#heart-button:hover > svg > path {
+    stroke: rgb(45, 191, 235);
+}

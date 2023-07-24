@@ -10,14 +10,16 @@
 }
 
 .gallery-comment-wrapper {
-    width: 100%;
+    width: 70%;
     display: flex;
     flex-direction: row;
     position: relative;
+    border-bottom: .5px solid #b4b9c2;
+    border-radius: 3px;
 }
 
 .gallery-comment-wrapper:hover {
-    background-color: #4f5b83;
+    background-color: #2d3b6c;
 }
 
 .gallery-comment-container {
@@ -60,7 +62,7 @@
 
 .gallery-comment-actions {
     display: flex;
-    margin: 4px 0 8px -5px;
+    margin: 4px 0 8px 0;
     align-items: center;
     color: #b4b9c2;
     font-size: 12px;
@@ -85,4 +87,16 @@
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
+}
+
+.gallery-comment-upvote:hover, .gallery-comment-downvote:hover {
+        background-color: #4a5787;
+}
+
+.gallery-comment-upvote:hover > svg > path {
+    stroke: #50c878;
+}
+
+.gallery-comment-downvote:hover > svg > path {
+    stroke: #d35151;
 }
