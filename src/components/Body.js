@@ -13,6 +13,7 @@ export default function Body(props) {
                     loader={<h4>Loading...</h4>}>
                     {props.posts.map((post) => (
                         <div key={post.id} className="body-post">
+                            {console.log(post.date)}
                             <div className="post-item-container">
                                 <div className="post-item-image">
                                     <img src={post.image} alt="post" width={300} height={219} onClick={() => window.location.href = "/gallery/" + post.id}>

@@ -13,7 +13,7 @@ class DefaultApp extends React.Component {
             openAdditionalCoverOptions: false,
             mainSelectedOption: "MOST VIRAL",
             alternativeSelectedOption: "POPULAR",
-            allPosts: postsData,
+            filteredPosts: postsData,
             startingPos: 0,
             posts: [],
             isThereMore: true
@@ -24,9 +24,17 @@ class DefaultApp extends React.Component {
         this.fetchData();
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.mainSelectedOption !== this.state.mainSelectedOption || prevState.alternativeSelectedOption !== this.state.alternativeSelectedOption) {
+            this.sortAndFilter();
+        } else if (prevState.filteredPosts !== this.state.filteredPosts || (prevState.posts.length !== 0 && this.state.posts.length === 0)) {
+            this.fetchData();
+        }
+    }
+
     fetchData = () => {
-        let newPosts = postsData.slice(this.state.startingPos, this.state.startingPos + 16);
-        if (this.state.posts.length + newPosts.length === this.state.allPosts.length) {
+        let newPosts = this.state.filteredPosts.slice(this.state.startingPos, this.state.startingPos + 16);
+        if (this.state.posts.length + newPosts.length === this.state.filteredPosts.length) {
             this.setState({ isThereMore: false });
         }
         this.setState({
@@ -95,59 +103,127 @@ class DefaultApp extends React.Component {
     }
 
     sortAndFilter = () => {
-        let results = [];
         if (this.state.mainSelectedOption === "USER SUBMITTED" && this.state.alternativeSelectedOption === "POPULAR") {
             // must be user sumbitted and are sorted by views in ascending order
-            results = this.state.allPosts.filter(post => post.user_submitted === true).sort((a, b) => a.views > b.views ? 1 : -1);
+            this.setState({
+                filteredPosts: postsData.filter(post => post.user_submitted === true).sort((a, b) => a.views > b.views ? 1 : -1),
+                startingPos: 0,
+                isThereMore: true,
+                posts: []
+            });
         } else if (this.state.mainSelectedOption === "USER SUBMITTED" && this.state.alternativeSelectedOption === "RISING") {
             // must be user sumbitted and are sorted by upvotes in ascending order
-            results = this.state.allPosts.filter(post => post.user_submitted === true).sort((a, b) => a.upvotes > b.upvotes ? 1 : -1);
+            this.setState({
+                filteredPosts: postsData.filter(post => post.user_submitted === true).sort((a, b) => a.upvotes > b.upvotes ? 1 : -1),
+                startingPos: 0,
+                isThereMore: true,
+                posts: []
+            });
         } else if (this.state.mainSelectedOption === "USER SUBMITTED" && this.state.alternativeSelectedOption === "NEWEST") {
             // must be user sumbitted and are sorted by date submitted
-            results = this.state.allPosts.filter(post => post.user_submitted === true).sort((a, b) => new Date(a.date).getDate() - new Date(b.date).getDate());
+            this.setState({
+                filteredPosts: postsData.filter(post => post.user_submitted === true)
+                .sort((a, b) => new Date(a.date).toISOString().split('T')[0] < new Date(b.date).toISOString().split('T')[0] ? 1 : -1),
+                startingPos: 0,
+                isThereMore: true,
+                posts: []
+            });
+        } else if (this.state.mainSelectedOption === "HIGHEST SCORING" && this.state.alternativeSelectedOption === "TODAY") {
+            // filtered by posts posted today, then sorted by upvotes in asceding order
+            this.setState({
+                filteredPosts: postsData.filter(post => new Date(post.date).toISOString().split('T')[0] === new Date().toISOString().split('T')[0])
+                .sort((a, b) => a.upvotes > b.upvotes ? 1 : -1),
+                startingPos: 0,
+                isThereMore: true,
+                posts: []
+            });
+        } else if (this.state.mainSelectedOption === "HIGHEST SCORING" && this.state.alternativeSelectedOption === "WEEK") {
+            this.setState({
+                filteredPosts: postsData.filter(post => new Date(post.date).getFullYear() === new Date().getFullYear() 
+                && new Date(post.date).getMonth() === new Date().getMonth() && (new Date().getDate() - new Date(post.date).getDate() >= 0 
+                && new Date().getDate() - new Date(post.date).getDate() < 7))
+                .sort((a, b) => a.upvotes > b.upvotes ? 1 : -1),
+                startingPos: 0,
+                isThereMore: true,
+                posts: []
+            });
+        } else if (this.state.mainSelectedOption === "HIGHEST SCORING" && this.state.alternativeSelectedOption === "MONTH") {
+            this.setState({
+                filteredPosts: postsData.filter(post => new Date(post.date).getFullYear() === new Date().getFullYear() 
+                && new Date(post.date).getMonth() === new Date().getMonth())
+                .sort((a, b) => a.upvotes > b.upvotes ? 1 : -1),
+                startingPos: 0,
+                isThereMore: true,
+                posts: []
+            });
+        } else if (this.state.mainSelectedOption === "HIGHEST SCORING" && this.state.alternativeSelectedOption === "YEAR") {
+            this.setState({
+                filteredPosts: postsData.filter(post => new Date(post.date).getFullYear() === new Date().getFullYear())
+                .sort((a, b) => a.upvotes > b.upvotes ? 1 : -1),
+                startingPos: 0,
+                isThereMore: true,
+                posts: []
+            });
+        } else if (this.state.mainSelectedOption === "HIGHEST SCORING" && this.state.alternativeSelectedOption === "ALL TIME") {
+            this.setState({
+                filteredPosts: postsData.sort((a, b) => a.upvotes > b.upvotes ? 1 : -1),
+                startingPos: 0,
+                isThereMore: true,
+                posts: []
+            });
+        } else if (this.state.mainSelectedOption === "MOST VIRAL" && this.state.alternativeSelectedOption === "POPULAR") {
+            this.setState({
+                filteredPosts: postsData.filter(post => post.upvotes > 1000 && post.number_of_comments > 100).sort((a, b) => a.upvotes > b.upvotes ? 1 : -1),
+                startingPos: 0,
+                isThereMore: true,
+                posts: []
+            });
+        } else if (this.state.mainSelectedOption === "MOST VIRAL" && this.state.alternativeSelectedOption === "NEWEST") {
+            this.setState({
+                filteredPosts: postsData.filter(post => post.upvotes > 1000 && post.number_of_comments > 100)
+                .sort((a, b) => new Date(a.date).toISOString().split('T')[0] < new Date(b.date).toISOString().split('T')[0] ? 1 : -1),
+                startingPos: 0,
+                isThereMore: true,
+                posts: []
+            });
+        } else if (this.state.mainSelectedOption === "MOST VIRAL" && this.state.alternativeSelectedOption === "BEST") {
+            this.setState({
+                filteredPosts: postsData.filter(post => post.upvotes > 1000 && post.number_of_comments > 100)
+                .sort((a, b) => a.upvotes + a.number_of_comments > b.upvotes + b.number_of_comments ? 1 : -1),
+                startingPos: 0,
+                isThereMore: true,
+                posts: []
+            });
+        } else if (this.state.mainSelectedOption === "MOST VIRAL" && this.state.alternativeSelectedOption === "RANDOM") {
+            this.setState({
+                filteredPosts: postsData.slice(0, Math.floor(Math.random() * (postsData.length - 1) + 1))
+                .filter(post => post.upvotes > 1000 && post.number_of_comments > 100),
+                startingPos: 0,
+                isThereMore: true,
+                posts: []
+            });
+        } else {
+            this.setState({
+                filteredPosts: postsData,
+                startingPos: 0,
+                isThereMore: true,
+                posts: []
+            });
         }
-        console.log(results);
-        // }  else if (mainOption === "HIGHEST SCORING" && alternativeOption === "TODAY") {
-        //     // must be user sumbitted and are sorted by date submitted
-        //     results = [];
-        // } else if (mainOption === "HIGHEST SCORING" && alternativeOption === "WEEK") {
-        //     // must be user sumbitted and are sorted by date submitted
-        //     results = data.filter(post => post.user_submitted === true).sort((a, b) => new Date(a.date).getDate() - new Date(b.date).getDate());
-        // } else if (mainOption === "HIGHEST SCORING" && alternativeOption === "MONTH") {
-        //     // must be user sumbitted and are sorted by date submitted
-        //     results = data.filter(post => post.user_submitted === true).sort((a, b) => new Date(a.date).getDate() - new Date(b.date).getDate());
-        // } else if (mainOption === "HIGHEST SCORING" && alternativeOption === "YEAR") {
-        //     // must be user sumbitted and are sorted by date submitted
-        //     results = data.filter(post => post.user_submitted === true).sort((a, b) => new Date(a.date).getDate() - new Date(b.date).getDate());
-        // } else if (mainOption === "HIGHEST SCORING" && alternativeOption === "ALL TIME") {
-        //     // must be user sumbitted and are sorted by date submitted
-        //     results = data.filter(post => post.user_submitted === true).sort((a, b) => new Date(a.date).getDate() - new Date(b.date).getDate());
-        // } else {
-        //     results = data;
-        // }
     }
 
     render() {
         return (
             <div className="App">
                 <Header openMain={this.state.openMainCoverOptions} openAlternative={this.state.openAdditionalCoverOptions}
-                mainOption={this.state.mainSelectedOption} alternativeOption={this.state.alternativeSelectedOption}
-                handleAlternativeOptionSelection={this.handleAlternativeOptionSelection} handleMainOptionSelection={this.handleMainOptionSelection}
-                handleButtonClick={this.handleButtonClick} handleDropdownOptionsReset={this.handleDropdownOptionsReset}/>
-                <Body posts={this.state.posts} more={this.state.isThereMore} formatNumber={this.formatNumber} fetchData={this.fetchData}/>
+                    mainOption={this.state.mainSelectedOption} alternativeOption={this.state.alternativeSelectedOption}
+                    handleAlternativeOptionSelection={this.handleAlternativeOptionSelection} handleMainOptionSelection={this.handleMainOptionSelection}
+                    handleButtonClick={this.handleButtonClick} handleDropdownOptionsReset={this.handleDropdownOptionsReset} />
+                <Body posts={this.state.posts} more={this.state.isThereMore} formatNumber={this.formatNumber} fetchData={this.fetchData} />
                 <Footer />
             </div>
         );
     }
-
-    // openMainCoverOptions: false,
-    //         openAdditionalCoverOptions: false,
-    //         mainSelectedOption: "MOST VIRAL",
-    //         alternativeSelectedOption: "POPULAR",
-    // handleAlternativeOptionSelection
-    // handleMainOptionSelection
-    // handleButtonClick
-    // handleDropdownOptionsReset
 
 }
 
