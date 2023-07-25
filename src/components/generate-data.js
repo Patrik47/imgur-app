@@ -11,7 +11,8 @@ export default function generatePosts() {
                 "device": faker.helpers.arrayElement(['Android', 'iPhone', 'Web']),
                 "date_published": faker.date.between({ from: '2020-01-01T00:00:00.000Z', to: '2023-07-19T00:00:00.000Z' }),
                 "comment": faker.word.words(Math.floor(Math.random() * 10) + 5),
-                "upvotes": faker.number.int({ min: -10, max: 2000000 })
+                "upvotes": faker.number.int({ min: -10, max: 2000000 }),
+                "replies": "abc"
             });
         }
         posts.push({
