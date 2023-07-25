@@ -3,12 +3,14 @@ import "./GalleryComments.css";
 import Avatar from "../../user-avatar.png";
 import formatTimeElapsed from "./formatTimeElapsed";
 import separateNumberDigitsWithComas from "./localeNumber";
+import GalleryReplies from "./GalleryReplies";
 
 class GalleryComments extends React.Component {
   constructor() {
     super();
     this.state = {
       expanded: false,
+      expandedReplies: [],
       comments: []
     };
   }
@@ -25,11 +27,32 @@ class GalleryComments extends React.Component {
     this.setState({ expanded: true, comments: this.props.data.comments });
   }
 
+  addOrRemoveFromExpandedArray = (id) => {
+    if (this.isInExpandedArray(id)) {
+      this.setState({
+        expandedReplies: this.state.expandedReplies.filter(e => e !== id)
+      });
+    } else {
+      this.setState({
+        expandedReplies: this.state.expandedReplies.concat(id)
+      })
+    }
+  }
+
+  isInExpandedArray = (id) => {
+    if (this.state.expandedReplies.includes(id))  {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   render() {
     return (
       <div className="gallery-comments-list">
         <div className="comments-list-inner">
-          {this.state.comments.map((comment, id) => (
+          {this.state.comments.map((comment, id) => {
+            return (
             <div key={id} className="gallery-comment">
               <div className="gallery-comment-wrapper">
                 <div className="gallery-comment-container">
@@ -90,11 +113,18 @@ class GalleryComments extends React.Component {
                         ></path>
                       </svg>
                     </div>
+                    <button type="button" className="button-replies" style={{display: this.isInExpandedArray(id) ? "none" : null}} onClick={() => this.addOrRemoveFromExpandedArray(id)}>
+                      | + {comment.replies.length} replies
+                    </button>
+                    <button type="button" className="button-replies" style={{display: !this.isInExpandedArray(id) ? "none" : null}} onClick={() => this.addOrRemoveFromExpandedArray(id)}>
+                      | - Collapse replies
+                    </button>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+              <GalleryReplies replies={comment.replies} expanded={this.isInExpandedArray(id)}/>
+            </div>);
+          })}
         </div>
         <div className="load-more" style={{ display: this.state.expanded ? "none" : null }}>
           <div className="load-more-container">

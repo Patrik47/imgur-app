@@ -4,6 +4,17 @@ export default function generatePosts() {
     let posts = [];
     for (let i = 0; i < 320; i++) {
         const commentsNumber = faker.number.int({ min: 0, max: 150 });
+        const repliesNumber = faker.number.int({min: 0, max: 7});
+        let replies = [];
+        for (let k = 0; k < repliesNumber; k++) {
+            replies.push({
+                "author": faker.person.fullName(),
+                "device": faker.helpers.arrayElement(['Android', 'iPhone', 'Web']),
+                "date_published": faker.date.between({ from: '2020-01-01T00:00:00.000Z', to: '2023-07-19T00:00:00.000Z' }),
+                "comment": faker.word.words(Math.floor(Math.random() * 10) + 5),
+                "upvotes": faker.number.int({ min: -10, max: 150000 }),
+            });
+        }
         let comments = [];
         for (let j = 0; j < commentsNumber; j++) {
             comments.push({
@@ -12,7 +23,7 @@ export default function generatePosts() {
                 "date_published": faker.date.between({ from: '2020-01-01T00:00:00.000Z', to: '2023-07-19T00:00:00.000Z' }),
                 "comment": faker.word.words(Math.floor(Math.random() * 10) + 5),
                 "upvotes": faker.number.int({ min: -10, max: 2000000 }),
-                "replies": "abc"
+                "replies": replies
             });
         }
         posts.push({
@@ -27,7 +38,8 @@ export default function generatePosts() {
             "number_of_comments": commentsNumber,
             "date": faker.date.between({ from: '2020-01-01T00:00:00.000Z', to: '2023-07-19T00:00:00.000Z' }),
             "views": faker.number.int({ min: 0, max: 2000000 }),
-            "comments": comments
+            "comments": comments,
+            "number_of_replies": repliesNumber
         });
     }
     console.log(posts);

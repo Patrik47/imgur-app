@@ -32,7 +32,7 @@ export default function MainGalleryContainer(props) {
                                 <span>Best</span>
                                 <img className="iconChevronDown" src="https://s.imgur.com/desktop-assets/desktop-assets/chevron-down-w.c9d88e9dd4a2c859ee05.svg" width="15" alt="chevron-bar"></img>
                             </div>
-                            <div className="gallery-comments-info-dropdown-bottom">
+                            <div className="gallery-comments-info-dropdown-bottom" style={{display: "none"}}>
                                 <svg width="24" height="8" viewBox="0 0 24 8" className="Dropdown-triangle" fill="none" xmlns="http://www.w3.org/2000/svg"><title>icon</title><path fill="#ffffff" d="M10.3359 1.1094C11.3436 0.437601 12.6564 0.437601 13.6641 1.1094L24 8L3.05823e-09 8L10.3359 1.1094Z"></path></svg>
                                 <div className="dropdown-list">
                                     <div className="dropdown-item">Best</div>
