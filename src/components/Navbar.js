@@ -5,7 +5,8 @@ import SearchBar from "./SearchBar";
 
 export default function Navbar(props) {
     return (
-        <div className="navbar-container" style={{backgroundColor: props.background ? null : '#1d2951'}}>
+        <div className="navbar-container" style={{backgroundColor: props.background ? null : '#1d2951', position: props.background ? null : "fixed",
+        right: props.background ? null : 0, left: props.background ? null : 0, zIndex: props.background ? null : 2}}>
             <div className="navbar-container-left">
                 <a href="http://localhost:3000/">
                     <img src={logo} alt="logo" width={94} height={36} onClick={() => window.location.href="/"}></img>
