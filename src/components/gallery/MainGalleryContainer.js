@@ -62,7 +62,7 @@ class MainGalleryContainer extends React.Component {
                             </div>
                         </div>
                         <div className="gallery-comments-list">
-                            <GalleryComments data={this.props.data} expandAll={this.state.expandReplies} />
+                            <GalleryComments id={this.props.data.id} expandAll={this.state.expandReplies} />
                         </div>
                     </div>
                 </div>

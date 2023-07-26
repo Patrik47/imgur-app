@@ -4,6 +4,8 @@ import Avatar from "../../user-avatar.png";
 import formatTimeElapsed from "./formatTimeElapsed";
 import separateNumberDigitsWithComas from "./localeNumber";
 import GalleryReplies from "./GalleryReplies";
+import CommentsData from "../../comments.json";
+import RepliesData from "../../replies.json";
 
 class GalleryComments extends React.Component {
   constructor() {
@@ -40,11 +42,19 @@ class GalleryComments extends React.Component {
   // }
 
   initData = () => {
-    this.setState({ comments: this.props.data.comments.slice(0, 5) });
+    this.setState({ comments: CommentsData.filter(comment => comment.post_id === this.props.id).slice(0, 5)});
   }
 
   expandComments = () => {
-    this.setState({ expanded: true, comments: this.props.data.comments });
+    this.setState({ expanded: true, comments: CommentsData.filter(comment => comment.post_id === this.props.id)});
+  }
+
+  fetchNumberOfReplies = (id) => {
+      return RepliesData.filter(reply => reply.comment_id === id).length;
+  }
+
+  fetchReplies = (id) => {
+    return RepliesData.filter(reply => reply.comment_id === id);
   }
 
   addOrRemoveFromExpandedArray = (id) => {
@@ -80,9 +90,9 @@ class GalleryComments extends React.Component {
     return (
       <div className="gallery-comments-list">
         <div className="comments-list-inner">
-          {this.state.comments.map((comment, id) => {
+          {this.state.comments.map((comment) => {
             return (
-            <div key={id} className="gallery-comment">
+            <div key={comment.comment_id} className="gallery-comment">
               <div className="gallery-comment-wrapper">
                 <div className="gallery-comment-container">
                   <div className="gallery-comment-header">
@@ -142,16 +152,18 @@ class GalleryComments extends React.Component {
                         ></path>
                       </svg>
                     </div>
-                    <button type="button" className="button-replies" style={{display: this.isInExpandedArray(id) ? "none" : null}} onClick={() => this.addOrRemoveFromExpandedArray(id)}>
-                      | + {comment.replies.length} replies
+                    <button type="button" className="button-replies" 
+                    style={{display: this.isInExpandedArray(comment.comment_id) || this.fetchNumberOfReplies(comment.comment_id) === 0 ? "none" : null}} 
+                    onClick={() => this.addOrRemoveFromExpandedArray(comment.comment_id)}>
+                      | + {this.fetchNumberOfReplies(comment.comment_id)} replies
                     </button>
-                    <button type="button" className="button-replies" style={{display: !this.isInExpandedArray(id) ? "none" : null}} onClick={() => this.addOrRemoveFromExpandedArray(id)}>
+                    <button type="button" className="button-replies" style={{display: !this.isInExpandedArray(comment.comment_id) ? "none" : null}} onClick={() => this.addOrRemoveFromExpandedArray(comment.comment_id)}>
                       | - Collapse replies
                     </button>
                   </div>
                 </div>
               </div>
-              <GalleryReplies replies={comment.replies} expanded={this.isInExpandedArray(id)}/>
+              <GalleryReplies replies={this.fetchReplies(comment.comment_id)} expanded={this.isInExpandedArray(comment.comment_id)} />
             </div>);
           })}
         </div>
