@@ -2,7 +2,8 @@
     height: auto;
     display: block;
     background-color: #2e3035;
-   
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /* .body-column {
@@ -15,7 +16,7 @@
 
 .body-post {
     display: block;
-    height: 286px;
+    /* height: auto; */
     width: 300px;
     margin-bottom: 16px;
     margin-right: 0;
@@ -39,7 +40,7 @@
 }
 
 .post-item-image {
-    height: 219px;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -117,10 +118,10 @@
     margin-right: 2px;
 }
 
-.scroll {
+/* .scroll {
     width: 100%;
     justify-content: center;
     display: grid;
     column-gap: 10px;
     grid-template-columns: auto auto auto auto auto;
-}
+} */

@@ -21,7 +21,7 @@ export default function GalleryHeader(props) {
                     <div className="author-meta">
                         <span>{separateNumberDigitsWithComas(props.data.views)} Views</span>
                         <span>•</span>
-                        <span>{formatTimeElapsed(props.data.date)}</span>
+                        <span>{formatTimeElapsed(props.data.date)} ago</span>
                         <span>•</span>
                         <span>via</span>
                         <span>{props.data.device}</span>

@@ -19,6 +19,26 @@ class GalleryComments extends React.Component {
     this.initData();
   }
 
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.expandAll) {
+  //     this.updateCommentIds(true)
+  //   } else {
+  //     this.updateCommentIds(false)
+  //   }
+  // }
+
+  // updateCommentIds = (state) => {
+  //   if (state) {
+  //     this.setState({
+  //       expandedReplies: this.fetchAllCommentIds()
+  //     });
+  //   } else {
+  //     this.setState({
+  //       expandedReplies: []
+  //     });
+  //   }
+  // }
+
   initData = () => {
     this.setState({ comments: this.props.data.comments.slice(0, 5) });
   }
@@ -46,6 +66,15 @@ class GalleryComments extends React.Component {
       return false;
     }
   }
+
+  // fetchAllCommentIds = () => {
+  //   let allCommentIds = [];
+  //   for (let i = 0; i < this.state.comments.length; i++) {
+  //     allCommentIds.push(this.state.comments.id);
+  //   }
+  //   return allCommentIds;
+  // }
+
 
   render() {
     return (

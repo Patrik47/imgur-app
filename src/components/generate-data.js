@@ -34,6 +34,7 @@ export default function generatePosts() {
             "long_description": faker.word.words(Math.floor(Math.random() * 50) + 10),
             "user_submitted": faker.datatype.boolean(),
             "image": faker.image.urlPicsumPhotos(),
+            "image_height": faker.number.int({min: 150, max: 550}),
             "upvotes": faker.number.int({ min: -10, max: 150000 }),
             "number_of_comments": commentsNumber,
             "date": faker.date.between({ from: '2020-01-01T00:00:00.000Z', to: '2023-07-27T00:00:00.000Z' }),
