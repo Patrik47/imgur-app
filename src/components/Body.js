@@ -15,7 +15,7 @@ export default function Body(props) {
                     <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 1050: 3, 1350: 4, 1650: 5, 1950: 6, 2250: 7}}>
                         <Masonry columnsCount={5} gutter="10px">
                             {props.posts.map((post) => (
-                                <div key={post.id} className="body-post" style={{ height: post.image_height }}>
+                                <div key={post.id} className="body-post" style={{ height: props.masonryLayout ? post.image_height : 250 + "px" }}>
                                     <div className="post-item-container">
                                         <div className="post-item-image">
                                             <img src={post.image} alt="post" width={300} height={100 + '%'} onClick={() => window.location.href = "/gallery/" + post.id}>

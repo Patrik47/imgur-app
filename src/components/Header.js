@@ -15,7 +15,8 @@ export default function Header(props) {
             <ChangeCover  openMain={props.openMain} openAlternative={props.openAlternative}
                 mainOption={props.mainOption} alternativeOption={props.alternativeOption}
                 handleAlternativeOptionSelection={props.handleAlternativeOptionSelection} handleMainOptionSelection={props.handleMainOptionSelection}
-                handleButtonClick={props.handleButtonClick} handleDropdownOptionsReset={props.handleDropdownOptionsReset}/>
+                handleButtonClick={props.handleButtonClick} handleDropdownOptionsReset={props.handleDropdownOptionsReset}
+                masonryLayout={props.masonryLayout} handleLayout={props.handleLayout}/>
         </div>
     );
 };

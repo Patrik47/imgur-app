@@ -16,7 +16,8 @@ class DefaultApp extends React.Component {
             filteredPosts: postsData,
             startingPos: 0,
             posts: [],
-            isThereMore: true
+            isThereMore: true,
+            masonryLayout: true
         };
     }
 
@@ -99,6 +100,12 @@ class DefaultApp extends React.Component {
             return {
                 alternativeSelectedOption: event.target.innerText
             };
+        });
+    }
+
+    handleLayoutChange = () => {
+        this.setState({
+            masonryLayout: !this.state.masonryLayout
         });
     }
 
@@ -226,8 +233,9 @@ class DefaultApp extends React.Component {
                 <Header openMain={this.state.openMainCoverOptions} openAlternative={this.state.openAdditionalCoverOptions}
                     mainOption={this.state.mainSelectedOption} alternativeOption={this.state.alternativeSelectedOption}
                     handleAlternativeOptionSelection={this.handleAlternativeOptionSelection} handleMainOptionSelection={this.handleMainOptionSelection}
-                    handleButtonClick={this.handleButtonClick} handleDropdownOptionsReset={this.handleDropdownOptionsReset} />
-                <Body posts={this.state.posts} more={this.state.isThereMore} formatNumber={this.formatNumber} fetchData={this.fetchData} />
+                    handleButtonClick={this.handleButtonClick} handleDropdownOptionsReset={this.handleDropdownOptionsReset} 
+                    masonryLayout={this.state.masonryLayout} handleLayout={this.handleLayoutChange}/>
+                <Body posts={this.state.posts} more={this.state.isThereMore} formatNumber={this.formatNumber} fetchData={this.fetchData} masonryLayout={this.state.masonryLayout}/>
                 <Footer />
             </div>
         );
