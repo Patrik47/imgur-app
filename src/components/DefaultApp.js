@@ -106,7 +106,7 @@ class DefaultApp extends React.Component {
         if (this.state.mainSelectedOption === "USER SUBMITTED" && this.state.alternativeSelectedOption === "POPULAR") {
             // must be user sumbitted and are sorted by views in ascending order
             this.setState({
-                filteredPosts: postsData.filter(post => post.user_submitted === true).sort((a, b) => a.views > b.views ? 1 : -1),
+                filteredPosts: postsData.filter(post => post.user_submitted === true).sort((a, b) => a.views > b.views ? -1 : 1),
                 startingPos: 0,
                 isThereMore: true,
                 posts: []
@@ -114,7 +114,7 @@ class DefaultApp extends React.Component {
         } else if (this.state.mainSelectedOption === "USER SUBMITTED" && this.state.alternativeSelectedOption === "RISING") {
             // must be user sumbitted and are sorted by upvotes in ascending order
             this.setState({
-                filteredPosts: postsData.filter(post => post.user_submitted === true).sort((a, b) => a.upvotes > b.upvotes ? 1 : -1),
+                filteredPosts: postsData.filter(post => post.user_submitted === true).sort((a, b) => a.upvotes > b.upvotes ? -1 : 1),
                 startingPos: 0,
                 isThereMore: true,
                 posts: []
@@ -132,7 +132,7 @@ class DefaultApp extends React.Component {
             // posts posted today and sorted by upvotes from highest to lowest
             this.setState({
                 filteredPosts: postsData.filter(post => new Date(post.date).toISOString().split('T')[0] === new Date().toISOString().split('T')[0])
-                .sort((a, b) => a.upvotes > b.upvotes ? 1 : -1),
+                .sort((a, b) => a.upvotes > b.upvotes ? -1 : 1),
                 startingPos: 0,
                 isThereMore: true,
                 posts: []
@@ -143,7 +143,7 @@ class DefaultApp extends React.Component {
                 filteredPosts: postsData.filter(post => new Date(post.date).getFullYear() === new Date().getFullYear() 
                 && new Date(post.date).getMonth() === new Date().getMonth() && (new Date().getDate() - new Date(post.date).getDate() >= 0 
                 && new Date().getDate() - new Date(post.date).getDate() < 7))
-                .sort((a, b) => a.upvotes > b.upvotes ? 1 : -1),
+                .sort((a, b) => a.upvotes > b.upvotes ? -1 : 1),
                 startingPos: 0,
                 isThereMore: true,
                 posts: []
@@ -153,7 +153,7 @@ class DefaultApp extends React.Component {
             this.setState({
                 filteredPosts: postsData.filter(post => new Date(post.date).getFullYear() === new Date().getFullYear() 
                 && new Date(post.date).getMonth() === new Date().getMonth())
-                .sort((a, b) => a.upvotes > b.upvotes ? 1 : -1),
+                .sort((a, b) => a.upvotes > b.upvotes ? -1 : 1),
                 startingPos: 0,
                 isThereMore: true,
                 posts: []
@@ -162,7 +162,7 @@ class DefaultApp extends React.Component {
             // posts posted within the same year and sorted by upvotes from highest to lowest
             this.setState({
                 filteredPosts: postsData.filter(post => new Date(post.date).getFullYear() === new Date().getFullYear())
-                .sort((a, b) => a.upvotes > b.upvotes ? 1 : -1),
+                .sort((a, b) => a.upvotes > b.upvotes ? -1 : 1),
                 startingPos: 0,
                 isThereMore: true,
                 posts: []
@@ -170,7 +170,7 @@ class DefaultApp extends React.Component {
         } else if (this.state.mainSelectedOption === "HIGHEST SCORING" && this.state.alternativeSelectedOption === "ALL TIME") {
             // all posts sorted by upvotes from highest to lowest
             this.setState({
-                filteredPosts: postsData.sort((a, b) => a.upvotes > b.upvotes ? 1 : -1),
+                filteredPosts: postsData.sort((a, b) => a.upvotes > b.upvotes ? -1 : 1),
                 startingPos: 0,
                 isThereMore: true,
                 posts: []
@@ -178,7 +178,7 @@ class DefaultApp extends React.Component {
         } else if (this.state.mainSelectedOption === "MOST VIRAL" && this.state.alternativeSelectedOption === "POPULAR") {
             // posts with upvotes higher than 1000 and comments higher than 100, sorted by upvotes in desceding order
             this.setState({
-                filteredPosts: postsData.filter(post => post.upvotes > 1000 && post.number_of_comments > 100).sort((a, b) => a.upvotes > b.upvotes ? 1 : -1),
+                filteredPosts: postsData.filter(post => post.upvotes > 1000 && post.number_of_comments > 100).sort((a, b) => a.upvotes > b.upvotes ? -1 : 1),
                 startingPos: 0,
                 isThereMore: true,
                 posts: []
@@ -196,7 +196,7 @@ class DefaultApp extends React.Component {
             // posts with upvotes higher than 1000 and comments higher than 100, sorted sum of upvotes and comments in descending order
             this.setState({
                 filteredPosts: postsData.filter(post => post.upvotes > 1000 && post.number_of_comments > 100)
-                .sort((a, b) => a.upvotes + a.number_of_comments > b.upvotes + b.number_of_comments ? 1 : -1),
+                .sort((a, b) => a.upvotes + a.number_of_comments > b.upvotes + b.number_of_comments ? -1 : 1),
                 startingPos: 0,
                 isThereMore: true,
                 posts: []

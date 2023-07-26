@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import SortAndFilter from './components/sortandfilter';
 // import generatePosts from './components/generate-data';
 
 
@@ -20,5 +19,3 @@ root.render(
 reportWebVitals();
 
 // generatePosts();
-
-// SortAndFilter("USER SUBMITTED", "POPULAR");
