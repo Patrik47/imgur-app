@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 export default function ErrorPage() {
-    return (
-        <div style={{ padding: 20 }}>
-            <h2>404: Page Not Found</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-        </div>
-    );
+  return (
+    <div style={{ padding: 20 }}>
+      <h2>404: Page Not Found</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
+    </div>
+  );
 }

@@ -1,6 +1,5 @@
-import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import DefaultApp from './components/DefaultApp';
+import MainPage from './components/main-app/MainPage';
 import Gallery from './components/gallery/Gallery';
 import ErrorPage from './components/ErrorPage';
 
@@ -8,9 +7,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<DefaultApp />} />
-        <Route path='/gallery/:postID' element={<Gallery />} />
-        <Route path='*' element={<ErrorPage />} />
+        <Route path="/" element={<MainPage />} />
+        <Route path="/gallery/:postID" element={<Gallery />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>
   );
