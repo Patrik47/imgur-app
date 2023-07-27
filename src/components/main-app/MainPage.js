@@ -4,6 +4,8 @@ import Header from './header/Header';
 import Body from './body/Body';
 import Footer from './footer/Footer';
 import postsData from '../../posts.json';
+// import BackToTop from './footer/BackToTop';
+// import useScrollDirection from './footer/useScrollDirection';
 
 class MainPage extends React.Component {
   constructor() {
@@ -310,6 +312,7 @@ class MainPage extends React.Component {
   };
 
   render() {
+    // const scrollDirection = useScrollDirection();
     return (
       <div className="main-page">
         <Header
@@ -332,6 +335,7 @@ class MainPage extends React.Component {
           masonryLayout={this.state.masonryLayout}
         />
         <Footer />
+        {/* {scrollDirection === 'down' ? <Footer /> : <BackToTop />} */}
       </div>
     );
   }

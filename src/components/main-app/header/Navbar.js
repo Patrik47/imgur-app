@@ -2,6 +2,7 @@ import React from 'react';
 import './Header.css';
 import logo from '../../../imgur-logo.png';
 import SearchBar from './search-bar/SearchBar';
+import NewPost from '../../icons/NewPost';
 
 export default function Navbar(props) {
   return (
@@ -24,9 +25,7 @@ export default function Navbar(props) {
             onClick={() => (window.location.href = '/')}></img>
         </a>
         <button type="button" className="navbar-button" id="new-post-button">
-          <img
-            src="https://s.imgur.com/desktop-assets/desktop-assets/icon-new-post.da483e9d9559c3b4e912.svg"
-            alt="button-icon-link"></img>
+          <NewPost />
           New post
         </button>
       </div>

@@ -28,7 +28,6 @@ export default function GalleryHeader(props) {
           </div>
         </div>
       </div>
-      <div className=""></div>
     </>
   );
 }

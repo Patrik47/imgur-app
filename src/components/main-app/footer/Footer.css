@@ -56,3 +56,15 @@
     text-decoration: none;
     color: #b4b9c2;
 }
+
+.badge-wrapper {
+    position: fixed;
+    z-index: 2;
+    right: 0;
+    bottom: 0;
+    padding: 21px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
