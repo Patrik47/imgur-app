@@ -31,5 +31,4 @@ function GalleryHeader(props) {
     </>
   );
 }
-
 export default GalleryHeader;

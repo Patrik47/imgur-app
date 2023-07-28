@@ -104,5 +104,4 @@ function GalleryComments(props) {
     </div>
   );
 }
-
 export default GalleryComments;

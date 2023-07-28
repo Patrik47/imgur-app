@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ExpandAll() {
+function ExpandAll() {
   return (
     <svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Expand</title>
@@ -12,3 +12,4 @@ export default function ExpandAll() {
     </svg>
   );
 }
+export default ExpandAll;

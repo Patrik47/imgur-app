@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Share() {
+function Share() {
   return (
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Share</title>
@@ -12,3 +12,4 @@ export default function Share() {
     </svg>
   );
 }
+export default Share;

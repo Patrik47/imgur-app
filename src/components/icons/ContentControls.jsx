@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ContentControls() {
+function ContentControls() {
   return (
     <img
       className="img"
@@ -8,3 +8,4 @@ export default function ContentControls() {
       src="https://s.imgur.com/desktop-assets/desktop-assets/icon-filter.20c41e094857405f1469.svg"></img>
   );
 }
+export default ContentControls;

@@ -1,4 +1,4 @@
-export default function formatTimeElapsed(date) {
+function formatTimeElapsed(date) {
   const previousDate = new Date(date);
   const todayDate = new Date();
   const diffTime = Math.abs(todayDate - previousDate);
@@ -19,3 +19,4 @@ export default function formatTimeElapsed(date) {
     return diffHours + ' hour ';
   }
 }
+export default formatTimeElapsed;

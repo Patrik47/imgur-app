@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ErrorPage() {
+function ErrorPage() {
   return (
     <div style={{ padding: 20 }}>
       <h2>404: Page Not Found</h2>
@@ -8,3 +8,4 @@ export default function ErrorPage() {
     </div>
   );
 }
+export default ErrorPage;

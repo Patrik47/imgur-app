@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
-// import MainPage from '../MainPage';
 
-export default function useScrollDirection(MainPage) {
+export default function useScrollDirection() {
   const [isHidden, setIsHidden] = useState(false);
 
   const updateScrollDirection = () => {
-    console.log(window.scrollY);
     if (window.scrollY > 10) {
       setIsHidden(true);
     } else {
@@ -19,5 +17,5 @@ export default function useScrollDirection(MainPage) {
     };
   }, [isHidden]);
 
-  return <MainPage hidden={isHidden} />;
+  return '';
 }

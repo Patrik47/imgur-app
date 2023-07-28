@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function LayoutOptionMasonry() {
+function LayoutOptionMasonry() {
   return (
     <svg
       className="img"
@@ -42,3 +42,4 @@ export default function LayoutOptionMasonry() {
     </svg>
   );
 }
+export default LayoutOptionMasonry;

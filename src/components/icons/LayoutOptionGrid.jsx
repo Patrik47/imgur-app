@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function LayoutOptionGrid() {
+function LayoutOptionGrid() {
   return (
     <svg className="img" xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="white">
       <rect
@@ -36,3 +36,4 @@ export default function LayoutOptionGrid() {
     </svg>
   );
 }
+export default LayoutOptionGrid;

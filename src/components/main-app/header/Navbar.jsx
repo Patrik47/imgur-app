@@ -4,7 +4,7 @@ import logo from '../../../imgur-logo.png';
 import SearchBar from './search-bar/SearchBar';
 import NewPost from '../../icons/NewPost';
 
-export default function Navbar(props) {
+function Navbar(props) {
   return (
     <div
       className="navbar-container"
@@ -46,3 +46,4 @@ export default function Navbar(props) {
     </div>
   );
 }
+export default Navbar;

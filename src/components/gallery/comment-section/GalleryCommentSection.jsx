@@ -81,5 +81,4 @@ function GalleryCommentSection(props) {
     </>
   );
 }
-
 export default GalleryCommentSection;

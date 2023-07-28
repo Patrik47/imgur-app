@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function DropDownTriangle() {
+function DropDownTriangle() {
   return (
     <svg
       width="24"
@@ -16,3 +16,4 @@ export default function DropDownTriangle() {
     </svg>
   );
 }
+export default DropDownTriangle;

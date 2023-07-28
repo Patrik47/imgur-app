@@ -40,5 +40,4 @@ function EngagementBar(props) {
     </div>
   );
 }
-
 export default EngagementBar;

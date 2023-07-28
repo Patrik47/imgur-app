@@ -29,5 +29,4 @@ function MainGalleryContainer() {
     </div>
   );
 }
-
 export default MainGalleryContainer;

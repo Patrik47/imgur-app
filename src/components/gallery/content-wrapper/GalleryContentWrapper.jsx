@@ -11,5 +11,4 @@ function GalleryContentWrapper() {
     </div>
   );
 }
-
 export default GalleryContentWrapper;

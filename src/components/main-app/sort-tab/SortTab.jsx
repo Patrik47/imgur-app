@@ -8,7 +8,7 @@ import LayoutOptionGrid from '../../icons/LayoutOptionGrid';
 import ContentControls from '../../icons/ContentControls';
 import Autoplay from '../../icons/Autoplay';
 
-export default function SortTab(props) {
+function SortTab(props) {
   const mainOptions = ['MOST VIRAL', 'USER SUBMITTED', 'HIGHEST SCORING'];
   return (
     <div className="change-cover">
@@ -80,3 +80,4 @@ export default function SortTab(props) {
     </div>
   );
 }
+export default SortTab;

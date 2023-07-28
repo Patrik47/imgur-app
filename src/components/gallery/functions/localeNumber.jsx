@@ -1,3 +1,4 @@
-export default function separateNumberDigitsWithComas(num) {
+function separateNumberDigitsWithComas(num) {
   return num.toLocaleString();
 }
+export default separateNumberDigitsWithComas;

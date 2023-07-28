@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Autoplay() {
+function Autoplay() {
   return (
     <img
       className="img"
@@ -8,3 +8,4 @@ export default function Autoplay() {
       src="https://s.imgur.com/desktop-assets/desktop-assets/icon-play.aba7568f963e6376b7d1.svg"></img>
   );
 }
+export default Autoplay;

@@ -43,5 +43,4 @@ function GalleryReplies(props) {
     </div>
   );
 }
-
 export default GalleryReplies;

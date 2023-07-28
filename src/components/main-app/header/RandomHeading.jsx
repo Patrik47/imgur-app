@@ -1,19 +1,15 @@
 import React from 'react';
 import './Header.css';
+import { useState, useEffect } from 'react';
 
-class RandomHeading extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      heading: ''
-    };
-  }
+function RandomHeading() {
+  const [heading, setHeading] = useState('');
 
-  componentDidMount() {
-    this.randomHeading();
-  }
+  useEffect(() => {
+    pickRandomHeading();
+  }, []);
 
-  randomHeading = () => {
+  function pickRandomHeading() {
     const headers = [
       'I gave my heart, she gave me a meme.',
       'It\'s pronounced "Imgur."',
@@ -26,14 +22,9 @@ class RandomHeading extends React.Component {
       "All's well that ends well.",
       "On the internet, nobody knows you're a dog."
     ];
-    this.setState({
-      heading: headers[Math.floor(Math.random() * headers.length)]
-    });
-  };
-
-  render() {
-    return <div className="head-message">{this.state.heading}</div>;
+    setHeading(headers[Math.floor(Math.random() * headers.length)]);
   }
-}
 
+  return <div className="head-message">{heading}</div>;
+}
 export default RandomHeading;

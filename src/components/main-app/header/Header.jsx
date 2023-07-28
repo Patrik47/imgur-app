@@ -5,7 +5,7 @@ import RandomHeading from './RandomHeading';
 import SortTab from '../sort-tab/SortTab';
 import Tags from './tags/Tags';
 
-export default function Header(props) {
+function Header(props) {
   return (
     <div className="header">
       <Navbar background={true} />
@@ -27,3 +27,4 @@ export default function Header(props) {
     </div>
   );
 }
+export default Header;

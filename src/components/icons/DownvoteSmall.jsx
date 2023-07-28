@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function DownvoteSmall() {
+function DownvoteSmall() {
   return (
     <svg
       width="16"
@@ -20,3 +20,4 @@ export default function DownvoteSmall() {
     </svg>
   );
 }
+export default DownvoteSmall;

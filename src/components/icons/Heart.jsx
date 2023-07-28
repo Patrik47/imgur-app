@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Heart() {
+function Heart() {
   return (
     <svg
       width="32"
@@ -18,3 +18,4 @@ export default function Heart() {
     </svg>
   );
 }
+export default Heart;

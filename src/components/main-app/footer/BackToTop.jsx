@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function BackToTop() {
+function BackToTop() {
   return (
     <div className="badge-wrapper">
       <a href="#">
@@ -22,3 +22,4 @@ export default function BackToTop() {
     </div>
   );
 }
+export default BackToTop;

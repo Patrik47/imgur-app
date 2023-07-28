@@ -7,7 +7,7 @@ const userSubmittedOptions = ['POPULAR', 'RISING', 'NEWEST'];
 
 const highestScoringOptions = ['TODAY', 'WEEK', 'MONTH', 'YEAR', 'ALL TIME'];
 
-export default function AlternativeOptions(props) {
+function AlternativeOptions(props) {
   if (props.mainSelectedOption === 'MOST VIRAL') {
     return (
       <div className="dropdown-list">
@@ -79,3 +79,4 @@ export default function AlternativeOptions(props) {
     );
   }
 }
+export default AlternativeOptions;

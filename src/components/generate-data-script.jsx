@@ -1,6 +1,6 @@
 import { fakerEN as faker } from '@faker-js/faker';
 
-export default function generatePosts() {
+function generatePosts() {
   let posts = [];
   let comments = [];
   let replies = [];
@@ -59,3 +59,4 @@ export default function generatePosts() {
   // console.log(comments);
   // console.log(replies);
 }
+export default generatePosts;

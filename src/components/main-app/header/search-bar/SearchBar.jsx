@@ -1,7 +1,7 @@
 import React from 'react';
 import './SearchBar.css';
 
-export default function SearchBar() {
+function SearchBar() {
   return (
     <div className="search-bar">
       <input
@@ -16,3 +16,4 @@ export default function SearchBar() {
     </div>
   );
 }
+export default SearchBar;
