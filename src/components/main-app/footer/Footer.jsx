@@ -1,9 +1,9 @@
 import React from 'react';
 import './Footer.css';
 
-function Footer() {
+function Footer(props) {
   return (
-    <div className="footer">
+    <div className={`footer ${props.isHidden ? 'down' : ''}`}>
       <ul className="footer-navbar">
         <li>© 2023 Imgur, Inc</li>
         <li>About</li>

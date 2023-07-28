@@ -1,8 +1,8 @@
 import React from 'react';
 
-function BackToTop() {
+function BackToTop(props) {
   return (
-    <div className="badge-wrapper">
+    <div className="badge-wrapper" style={{ visibility: props.isHidden ? 'visible' : 'hidden' }}>
       <a href="#">
         <svg
           width="32"

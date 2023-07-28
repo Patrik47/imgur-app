@@ -5,8 +5,8 @@ import Body from './body/Body';
 import Footer from './footer/Footer';
 import { useState, useEffect, useRef } from 'react';
 import sortAndFilter from './sortAndFilter';
-// import BackToTop from './footer/BackToTop';
-// import useScrollDirection from './footer/useScrollDirection';
+import BackToTop from './footer/BackToTop';
+import useScrollDirection from '../useScrollDirection';
 
 function MainPage() {
   const [openMainCoverOptions, setOpenMainCoverOptions] = useState(false);
@@ -22,6 +22,7 @@ function MainPage() {
   const [masonryLayout, setMasonryLayout] = useState(true);
   const previousPosts = usePrevious(posts);
   const previousFilteredPosts = usePrevious(filteredPosts);
+  const isHidden = useScrollDirection();
 
   useEffect(() => {
     fetchData();
@@ -108,8 +109,8 @@ function MainPage() {
         handleLayout={handleLayoutChange}
       />
       <Body posts={posts} more={isThereMore} fetchData={fetchData} masonryLayout={masonryLayout} />
-      <Footer />
-      {/* {window.scrollY <= 10 ? <Footer /> : <BackToTop />} */}
+      <Footer isHidden={isHidden} />
+      <BackToTop isHidden={isHidden} />
     </div>
   );
 }

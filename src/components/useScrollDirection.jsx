@@ -4,7 +4,7 @@ export default function useScrollDirection() {
   const [isHidden, setIsHidden] = useState(false);
 
   const updateScrollDirection = () => {
-    if (window.scrollY > 10) {
+    if (window.scrollY !== 0) {
       setIsHidden(true);
     } else {
       setIsHidden(false);
@@ -17,5 +17,5 @@ export default function useScrollDirection() {
     };
   }, [isHidden]);
 
-  return '';
+  return isHidden;
 }
