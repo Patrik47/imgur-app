@@ -9,4 +9,4 @@ function Tags() {
     </div>
   );
 }
-export default Tags();
+export default Tags;
