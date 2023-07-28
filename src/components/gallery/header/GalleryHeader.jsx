@@ -4,7 +4,7 @@ import userLogo from '../../../user-avatar.png';
 import formatTimeElapsed from '../functions/formatTimeElapsed';
 import separateNumberDigitsWithComas from '../functions/localeNumber';
 
-export default function GalleryHeader(props) {
+function GalleryHeader(props) {
   return (
     <>
       <div className="gallery-title">
@@ -31,3 +31,5 @@ export default function GalleryHeader(props) {
     </>
   );
 }
+
+export default GalleryHeader;

@@ -1,5 +1,7 @@
 import postsData from '../../../posts.json';
 
-export default function PostData(id) {
+function loadPostData(id) {
   return postsData.filter((post) => post.id === id);
 }
+
+export default loadPostData;

@@ -1,5 +1,5 @@
 import React from 'react';
-import './MainGallery.css';
+import './EngagementBar.css';
 import formatNumber from '../functions/formatNumber';
 import Upvote from '../../icons/Upvote';
 import Downvote from '../../icons/Downvote';
@@ -7,7 +7,7 @@ import Comments from '../../icons/Comments';
 import Share from '../../icons/Share';
 import Heart from '../../icons/Heart';
 
-export default function ButtonsBar(props) {
+function EngagementBar(props) {
   return (
     <div className="buttons-bar-container">
       <div className="buttons-vote">
@@ -40,3 +40,5 @@ export default function ButtonsBar(props) {
     </div>
   );
 }
+
+export default EngagementBar;

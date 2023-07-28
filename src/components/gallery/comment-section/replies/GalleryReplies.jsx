@@ -1,12 +1,12 @@
 import React from 'react';
-import Avatar from '../../../user-avatar.png';
-import formatTimeElapsed from '../functions/formatTimeElapsed';
-import separateNumberDigitsWithComas from '../functions/localeNumber';
-import './GalleryComments.css';
-import DownvoteSmall from '../../icons/DownvoteSmall';
-import UpvoteSmall from '../../icons/UpvoteSmall';
+import Avatar from '../../../../user-avatar.png';
+import formatTimeElapsed from '../../functions/formatTimeElapsed';
+import separateNumberDigitsWithComas from '../../functions/localeNumber';
+import '../comments/GalleryComments.css';
+import DownvoteSmall from '../../../icons/DownvoteSmall';
+import UpvoteSmall from '../../../icons/UpvoteSmall';
 
-export default function GalleryReplies(props) {
+function GalleryReplies(props) {
   return (
     <div className="gallery-reply" style={{ display: props.expanded ? null : 'none' }}>
       {props.replies.map((reply, id) => (
@@ -43,3 +43,5 @@ export default function GalleryReplies(props) {
     </div>
   );
 }
+
+export default GalleryReplies;

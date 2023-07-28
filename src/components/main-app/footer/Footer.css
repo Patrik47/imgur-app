@@ -68,3 +68,8 @@
     justify-content: flex-end;
     align-items: flex-end;
 }
+
+.badge-wrapper > a {
+    background-color: #474a51;
+    border-radius: 4px;
+}

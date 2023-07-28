@@ -153,10 +153,6 @@
     line-height: inherit;
 }
 
-.button-replies:hover {
-    background-color: #4a5787;
-}
-
 .gallery-reply {
     padding-left: 32px;
     padding-top: 12px;

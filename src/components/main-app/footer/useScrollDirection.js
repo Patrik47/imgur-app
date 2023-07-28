@@ -1,27 +1,23 @@
 import { useState, useEffect } from 'react';
+// import MainPage from '../MainPage';
 
-export default function useScrollDirection() {
-  const [scrollDirection, setScrollDirection] = useState(null);
+export default function useScrollDirection(MainPage) {
+  const [isHidden, setIsHidden] = useState(false);
 
+  const updateScrollDirection = () => {
+    console.log(window.scrollY);
+    if (window.scrollY > 10) {
+      setIsHidden(true);
+    } else {
+      setIsHidden(false);
+    }
+  };
   useEffect(() => {
-    let lastScrollY = window.pageYOffset;
-
-    const updateScrollDirection = () => {
-      const scrollY = window.pageYOffset;
-      const direction = scrollY > lastScrollY ? 'down' : 'up';
-      if (
-        direction !== scrollDirection &&
-        (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)
-      ) {
-        setScrollDirection(direction);
-      }
-      lastScrollY = scrollY > 0 ? scrollY : 0;
-    };
-    window.addEventListener('scroll', updateScrollDirection); // add event listener
+    window.addEventListener('scroll', updateScrollDirection);
     return () => {
-      window.removeEventListener('scroll', updateScrollDirection); // clean up
+      window.removeEventListener('scroll', updateScrollDirection);
     };
-  }, [scrollDirection]);
+  }, [isHidden]);
 
-  return scrollDirection;
+  return <MainPage hidden={isHidden} />;
 }

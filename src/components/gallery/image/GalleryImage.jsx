@@ -1,7 +1,7 @@
 import React from 'react';
 import './GalleryImage.css';
 
-export default function GalleryImage(props) {
+function GalleryImage(props) {
   return (
     <div className="media-image">
       <div className="media-image-container">
@@ -10,3 +10,5 @@ export default function GalleryImage(props) {
     </div>
   );
 }
+
+export default GalleryImage;

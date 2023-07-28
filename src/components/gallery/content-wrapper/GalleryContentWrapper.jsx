@@ -2,12 +2,14 @@ import React from 'react';
 import './GalleryContentWrapper.css';
 import MainGalleryContainer from '../main/MainGalleryContainer';
 
-export default function GalleryContentWrapper(props) {
+function GalleryContentWrapper() {
   return (
     <div className="gallery-content-wrapper">
       <div className="gallery">
-        <MainGalleryContainer data={props.data} />
+        <MainGalleryContainer />
       </div>
     </div>
   );
 }
+
+export default GalleryContentWrapper;

@@ -1,0 +1,97 @@
+.buttons-bar-container {
+    position: sticky;
+    top: 200px;
+    height: auto;
+    box-sizing: content-box;
+}
+
+.buttons-vote {
+    padding: 8px 0;
+    display: flex;
+    flex-flow: column;
+    border: 1px solid #464b57;
+    box-sizing: border-box;
+    border-radius: 4px;
+    max-height: 264px;
+}
+
+.button-wrapper {
+    display: flex;
+    cursor: pointer;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    cursor: pointer;
+    text-align: center;
+}
+
+.upvotes {
+    font-size: 12px;
+    line-height: 12px;
+    opacity: 1;
+    font-family: "Proxima Nova Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: .05em;
+    color: white;
+}
+
+
+.buttons-share {
+    height: 72px;
+    box-sizing: border-box;
+    padding: 12px;
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 32px;
+    justify-content: center;
+}
+
+
+.share-wrapper {
+    border-radius: 3px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.buttons-comments {
+    border: 1px solid #464b57;
+    box-sizing: border-box;
+    border-radius: 4px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    padding: 12px;
+}
+
+.comment-icon {
+    height: 32px;
+}
+
+.comment-label {
+    font-size: 12px;
+    line-height: 12px;
+    padding-top: 6px;
+    font-family: "Proxima Nova Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: .05em;
+    color: white;
+}
+
+
+#upvote-button:hover > svg > path {
+    stroke: #50c878;
+}
+
+#downvote-button:hover > svg > path {
+    stroke: #d35151;
+}
+
+#heart-button:hover > svg > path {
+    stroke: rgb(45, 191, 235);
+}
