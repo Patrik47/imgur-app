@@ -36,7 +36,7 @@ function MainGalleryContainer() {
   }, []);
 
   const postData = loadPostData(Number(params.altID))[0];
-  console.log(postData);
+  // console.log(postData);
   return (
     <div className="main-gallery-container">
       <div className="gallery-buttons-bar">

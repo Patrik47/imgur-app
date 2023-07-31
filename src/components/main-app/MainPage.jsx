@@ -7,8 +7,8 @@ import { useState, useEffect, useRef } from 'react';
 import sortAndFilter from './sortAndFilter';
 import BackToTop from './footer/BackToTop';
 import useScrollDirection from '../useScrollDirection';
-// import getImages from '../API/getImages';
 import { fakerEN as faker } from '@faker-js/faker';
+import { ClipLoader } from 'react-spinners';
 
 function MainPage() {
   const [openMainCoverOptions, setOpenMainCoverOptions] = useState(false);
@@ -21,14 +21,16 @@ function MainPage() {
   const [filteredPosts, setFilteredPosts] = useState([]); // all posts after filter applied;
   const [isThereMore, setIsThereMore] = useState(true);
   const [masonryLayout, setMasonryLayout] = useState(true);
+  const [loadingComplete, setLoadingComplete] = useState(false);
   const previousPosts = usePrevious(posts);
   const previousFilteredPosts = usePrevious(filteredPosts);
   const isHidden = useScrollDirection();
 
-  const fetchImages = () => {
+  const fetchImages = async () => {
     const url = `https://api.thecatapi.com/v1/images/search?limit=100`;
     const api_key = 'live_OkgDAFfCVmtyTyzZpjJpwx8zsUT7sjU0hTuTKQznJjP6GKmCPr8vA8QtblME4KMp';
-    fetch(url, {
+
+    await fetch(url, {
       headers: {
         'x-api-key': api_key
       }
@@ -53,7 +55,7 @@ function MainPage() {
           });
           imagesData[i].views = faker.number.int({ min: 0, max: 150000 });
         }
-        setAllPosts(imagesData);
+        setAllPosts(allPosts.concat(imagesData));
       })
       .catch(function (error) {
         console.log(error);
@@ -65,8 +67,17 @@ function MainPage() {
   }, []);
 
   useEffect(() => {
-    if (allPosts.length !== 0) {
+    if (loadingComplete) {
+      setStartingPos(0);
       setFilteredPosts(sortAndFilter(mainSelectedOption, alternativeSelectedOption, allPosts));
+      setIsThereMore(true);
+      setPosts([]);
+    }
+  }, [loadingComplete]);
+
+  useEffect(() => {
+    if (allPosts.length === 100) {
+      setLoadingComplete(true);
     }
   }, [allPosts]);
 
@@ -150,7 +161,24 @@ function MainPage() {
         masonryLayout={masonryLayout}
         handleLayout={handleLayoutChange}
       />
-      <Body posts={posts} more={isThereMore} fetchData={fetchData} masonryLayout={masonryLayout} />
+      {loadingComplete ? (
+        <Body
+          posts={posts}
+          more={isThereMore}
+          fetchData={fetchData}
+          masonryLayout={masonryLayout}
+        />
+      ) : (
+        <div className="spinner">
+          <ClipLoader
+            color={'#b4b9c2'}
+            loading={true}
+            size={150}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
+      )}
       <Footer isHidden={isHidden} />
       <BackToTop isHidden={isHidden} />
     </div>
