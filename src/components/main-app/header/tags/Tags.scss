@@ -1,3 +1,5 @@
+@use '../../../variables' as variables;
+
 .tags-bar {
     height: 31px;
     width: 100%;
@@ -7,16 +9,16 @@
     align-items: center;
     /* opacity: .7; */
     font-size: 18px;
-    font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: variables.$font-fam-main;
     font-weight: 600;
     line-height: 1;
     letter-spacing: 1.3px;
     text-align: left;
-    color: #fff;
+    color: variables.$white;
 }
 
 .tags-bar > span {
-    color: #babec4;
+    color: variables.$dropdown-text-color;
     font-weight: bold;
     margin: 0 100px;
 }

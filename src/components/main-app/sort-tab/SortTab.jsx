@@ -1,5 +1,5 @@
 import React from 'react';
-import './SortTab.css';
+import './SortTab.scss';
 import { MdArrowDropDown } from 'react-icons/md';
 import AlternativeOptions from './AlternativeOptions';
 import DropDownTriangle from '../../icons/DropDownTriangle';

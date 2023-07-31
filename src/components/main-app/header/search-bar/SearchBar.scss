@@ -1,14 +1,16 @@
+@use '../../../variables' as variables;
+
 .search-button {
     margin: auto 0;
     height: 36px;
     border: none;
-    color: white;
+    color: variables.$white;
     font-weight: bold;
     font-size: medium;
     padding: 0 10px;
     border-radius: 4px;
     transition-duration: 0.4s;
-    background: rgba(255,255,255,.25);
+    background: variables.$searchbar-background;
     cursor: pointer;
 }
 
@@ -23,12 +25,10 @@
     width: 100%;
     max-width: 550px;
     display: flex;
-    /* background-color: rgba(255,255,255,.25); */
-
 }
 
 .search-bar-textinput {
-    background: rgba(255,255,255,.25);
+    background: variables.$searchbar-background;
     border: 1px solid transparent;
     padding: 8px 35px 8px 10px;
     border-radius: 3px;
@@ -39,9 +39,9 @@
     font-size: 16px;
     font-weight: 700;
     letter-spacing: .4px;
-    color: #fff;
+    color: variables.$white;
 }
 
 .search-bar-textinput::placeholder {
-    color: #fff;
+    color: variables.$white;
 }

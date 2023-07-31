@@ -1,5 +1,5 @@
 import React from 'react';
-import './Header.css';
+import './Header.scss';
 import logo from '../../../imgur-logo.png';
 import SearchBar from './search-bar/SearchBar';
 import NewPost from '../../icons/NewPost';

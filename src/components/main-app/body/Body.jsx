@@ -1,5 +1,5 @@
 import React from 'react';
-import './Body.css';
+import './Body.scss';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import formatNumber from '../../gallery/functions/formatNumber';

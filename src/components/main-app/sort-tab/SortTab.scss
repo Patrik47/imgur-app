@@ -1,3 +1,5 @@
+@use '../../variables' as variables;
+
 .change-cover {
     display: flex;
     justify-content: space-between;
@@ -35,11 +37,11 @@
 
 .dropdown-title {
     font-size: 18px;
-    font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: variables.$font-fam-main;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-align: right;
-    color: #babec4;
+    color: variables.$dropdown-text-color;
     cursor: pointer;
 }
 
@@ -73,7 +75,7 @@
 
 .dropdown-option {
     box-sizing: border-box;
-    color: #b4b9c2;
+    color: variables.$theme;
     cursor: pointer;
     display: block;
     line-height: 2.14;
@@ -86,11 +88,11 @@
 }
 
 .dropdown-option:hover {
-    background-color: #898989;
+    background-color: variables.$dropdown-option-hover-color;
 }
 
 .dropdown-triangle {
-    color: #b4b9c2;
+    color: variables.$theme;
     position: absolute;
     right: 22px;
     top: 0;

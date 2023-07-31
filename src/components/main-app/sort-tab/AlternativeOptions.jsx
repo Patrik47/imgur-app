@@ -1,5 +1,5 @@
 import React from 'react';
-import './SortTab.css';
+import './SortTab.scss';
 
 const mostViralOptions = ['POPULAR', 'NEWEST', 'BEST', 'RANDOM'];
 

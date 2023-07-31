@@ -1,13 +1,28 @@
+@use '../../variables' as variables;
+
 .footer-navbar {
     overflow: hidden;
     margin: 0 24px;
     font-size: 13px;
     letter-spacing: .5px;
     text-align: left;
-    color: #b4b9c2;
+    color: variables.$theme;
     display: flex;
     width: 100%;
     list-style-type: none;
+    li {
+        display: inline-block;
+        margin: auto 20px;
+        vertical-align: middle;
+        a {
+            text-decoration: none;
+            color: variables.$theme;
+        }
+    }
+    li:first-child {
+        font-weight: 700;
+    }
+    
 }
 
 .footer.down{
@@ -16,7 +31,7 @@
 
 .footer {
     white-space: nowrap;
-    background-color: #33353b;
+    background-color: variables.$footer-background-color;
     display: flex;
     justify-content: space-between;
     height: 50px;
@@ -46,16 +61,6 @@
     }
   }
 
-.footer-navbar > li {
-    display: inline-block;
-    margin: auto 20px;
-    vertical-align: middle;
-}
-
-.footer-navbar > li:first-child {
-    font-weight: 700;
-}
-
 .footer-app {
     padding: 0 47px;
     font-size: 13px;
@@ -63,19 +68,13 @@
     display: flex;
     min-width: 170px;
     font-weight: 700;
-}
-
-.footer-app > a {
-    width: 100%;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    margin: auto;
-}
-
-.footer-navbar > li > a {
-    text-decoration: none;
-    color: #b4b9c2;
+    a {
+        width: 100%;
+        color: variables.$white;
+        text-decoration: none;
+        text-align: center;
+        margin: auto;
+    }
 }
 
 .badge-wrapper {
@@ -88,9 +87,8 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
-}
-
-.badge-wrapper > a {
-    background-color: #474a51;
-    border-radius: 4px;
+    a {
+        background-color: #474a51;
+        border-radius: 4px;
+    }
 }

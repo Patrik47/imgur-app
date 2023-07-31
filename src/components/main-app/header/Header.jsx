@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
-import './Header.css';
+import './Header.scss';
 import RandomHeading from './RandomHeading';
 import SortTab from '../sort-tab/SortTab';
 import Tags from './tags/Tags';

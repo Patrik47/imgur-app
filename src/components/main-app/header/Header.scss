@@ -1,7 +1,9 @@
+@use '../../variables' as variables;
+
 .header {
     width: 100%;
     padding-bottom: 76px;
-    background: url(https://s.imgur.com/desktop-assets/desktop-assets/homebg.f51d3f34235dea1b7cdd.png) no-repeat;
+    background: variables.$header-background-url;
     background-size: 100% 100%;
     margin: 0;
 }
@@ -26,9 +28,9 @@
     font-weight: 700;
     position: relative;
     width: auto;
-    background-color: #1bb76e;
+    background-color: variables.$button-green-color;
     box-shadow: 0 6px 10px 0 rgba(27,28,30,.31);
-    color: #fff;
+    color: variables.$white;
     white-space: nowrap;
     margin: auto 20px;
 }
@@ -46,11 +48,15 @@
     justify-content: flex-end;
     min-width: 280px;
     position: relative;
+    button {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
 }
 
 .head-message {
     font-size: 24px;
-    font-family: "Proxima Nova ExtraBold","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: variables.$font-heading-family;
     letter-spacing: .6px;
     color: #aed8ea;
     text-align: center;
@@ -64,7 +70,7 @@
     margin: auto 0;
     height: 36px;
     border: none;
-    color: white;
+    color: variables.$white;
     font-weight: bold;
     font-size: medium;
     padding: 0 10px;
@@ -77,7 +83,7 @@
 }
 
 #ad-free-button {
-    background-color: #6432f9;
+    background-color: variables.$button-purple-color;
 }
 
 #sign-in-button {
@@ -85,23 +91,17 @@
 }
 
 #sign-up-button {
-    background-color: #1bb76e;
+    background-color: variables.$button-green-color;
 }
 
 #new-post-button {
     display: inline-flex;
     justify-content: center;
-}
-
-#new-post-button > img {
-    margin-right: 10px;
+    img {
+        margin-right: 10px;
+    }
 }
 
 #new-post-button:hover {
-    background-color: #5bd49b ;
-}
-
-.navbar-container-right > button {
-    margin-left: 5px;
-    margin-right: 5px;
+    background-color: variables.$button-green-color-hover;
 }
