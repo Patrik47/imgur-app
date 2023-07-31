@@ -42,7 +42,9 @@ function Body(props) {
                         alt="post"
                         width={300}
                         height={100 + '%'}
-                        onClick={() => (window.location.href = '/gallery/' + post.id)}></img>
+                        onClick={() =>
+                          (window.location.href = '/gallery/' + post.id + '/' + post.altID)
+                        }></img>
                     </div>
                     <div className="post-item-title-wrapper">
                       <div className="post-item-title">

@@ -39,6 +39,7 @@ function MainPage() {
       .then((data) => {
         let imagesData = data;
         for (let i = 0; i < imagesData.length; i++) {
+          imagesData[i].altID = i;
           imagesData[i].title = faker.word.words(Math.floor(Math.random() * 3) + 5);
           imagesData[i].author = faker.person.fullName();
           imagesData[i].device = faker.helpers.arrayElement(['Android', 'iPhone', 'Web']);
