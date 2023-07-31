@@ -6,17 +6,8 @@
     padding-right: 10px;
 }
 
-/* .body-column {
-    width: 100%;
-    justify-content: center;
-    display: grid;
-    column-gap: 10px;
-    grid-template-columns: auto auto auto;
-} */
-
 .body-post {
     display: block;
-    /* height: auto; */
     min-height: 250px;
     width: 300px;
     margin-bottom: 16px;
@@ -117,12 +108,5 @@
 .views-number {
     margin-left: 2px;
     margin-right: 2px;
+    border-bottom: none;
 }
-
-/* .scroll {
-    width: 100%;
-    justify-content: center;
-    display: grid;
-    column-gap: 10px;
-    grid-template-columns: auto auto auto auto auto;
-} */

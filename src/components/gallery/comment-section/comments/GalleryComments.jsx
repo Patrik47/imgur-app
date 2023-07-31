@@ -89,6 +89,13 @@ function GalleryComments(props) {
                 replies={fetchReplies(comment.comment_id)}
                 expanded={isInExpandedArray(comment)}
               />
+              <hr
+                style={{
+                  borderColor: '#4a5787',
+                  width: 75 + '%',
+                  maxWidth: 800 + 'px',
+                  marginLeft: 0
+                }}></hr>
             </div>
           );
         })}
