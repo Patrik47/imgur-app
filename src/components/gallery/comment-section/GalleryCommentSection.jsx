@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import CommentsData from '../../../comments.json';
 import DropDownTriangle from '../../icons/DropDownTriangle';
 import GalleryComments from './comments/GalleryComments';
-import './GalleryCommentSection.css';
+import './GalleryCommentSection.scss';
 
 function GalleryCommentSection(props) {
   const [areRepliesExpanded, setAreRepliesExpanded] = useState(false);

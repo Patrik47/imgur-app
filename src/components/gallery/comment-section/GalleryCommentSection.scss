@@ -1,3 +1,5 @@
+@use '../../variables';
+
 .gallery-comments-info {
     display: flex;
     flex-direction: row;
@@ -13,30 +15,30 @@
     line-height: 15px;
     letter-spacing: .06em;
     text-transform: uppercase;
-    color: #dadce2;
+    color: variables.$gallery-comments-header-color;
     flex-grow: 1;
-    font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: variables.$font-fam-main;
     font-weight: bolder;
 }
 
 .gallery-comments-info-expandall {
     opacity: .7;
-    font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: variables.$font-fam-main;
     font-size: 14px;
     line-height: 14px;
     text-align: right;
-    color: #dadce2;
+    color: variables.$gallery-comments-header-color;
     margin-left: 35px;
     cursor: pointer;
     font-weight: bolder;
 }
 
 .gallery-comments-info-sort {
-    font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: variables.$font-fam-main;
     font-size: 14px;
     line-height: 14px;
     text-align: right;
-    color: #dadce2;
+    color: variables.$gallery-comments-header-color;
     margin-left: 35px;
     cursor: pointer;
 }

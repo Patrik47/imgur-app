@@ -1,5 +1,5 @@
 import React from 'react';
-import './GalleryImage.css';
+import './GalleryImage.scss';
 
 function GalleryImage(props) {
   return (

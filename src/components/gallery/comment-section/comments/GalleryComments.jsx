@@ -1,5 +1,5 @@
 import React from 'react';
-import './GalleryComments.css';
+import './GalleryComments.scss';
 import Avatar from '../../../../user-avatar.png';
 import formatTimeElapsed from '../../functions/formatTimeElapsed';
 import separateNumberDigitsWithComas from '../../functions/localeNumber';

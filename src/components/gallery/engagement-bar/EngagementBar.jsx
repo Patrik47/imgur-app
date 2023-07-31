@@ -1,5 +1,5 @@
 import React from 'react';
-import './EngagementBar.css';
+import './EngagementBar.scss';
 import formatNumber from '../functions/formatNumber';
 import Upvote from '../../icons/Upvote';
 import Downvote from '../../icons/Downvote';

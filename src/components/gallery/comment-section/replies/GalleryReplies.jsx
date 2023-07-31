@@ -2,7 +2,7 @@ import React from 'react';
 import Avatar from '../../../../user-avatar.png';
 import formatTimeElapsed from '../../functions/formatTimeElapsed';
 import separateNumberDigitsWithComas from '../../functions/localeNumber';
-import '../comments/GalleryComments.css';
+import '../comments/GalleryComments.scss';
 import DownvoteSmall from '../../../icons/DownvoteSmall';
 import UpvoteSmall from '../../../icons/UpvoteSmall';
 

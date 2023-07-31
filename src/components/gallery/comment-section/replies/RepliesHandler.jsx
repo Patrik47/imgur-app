@@ -1,5 +1,5 @@
 import React from 'react';
-import './RepliesHandler.css';
+import './RepliesHandler.scss';
 
 function RepliesHandler(props) {
   return (

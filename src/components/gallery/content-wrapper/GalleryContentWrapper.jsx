@@ -1,5 +1,5 @@
 import React from 'react';
-import './GalleryContentWrapper.css';
+import './GalleryContentWrapper.scss';
 import MainGalleryContainer from '../main/MainGalleryContainer';
 
 function GalleryContentWrapper() {

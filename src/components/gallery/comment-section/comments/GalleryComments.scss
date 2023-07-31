@@ -1,3 +1,5 @@
+@use '../../../variables' as variables;
+
 .gallery-comments-list {
     position: relative;
     min-height: 385px;
@@ -33,7 +35,7 @@
     align-items: center;
     font-size: 12px;
     line-height: 12px;
-    color: #b4b9c2;
+    color: variables.$theme;
     margin-bottom: 4px;
     display: flex;
 }
@@ -47,8 +49,8 @@
 
 .gallery-comment-author-name {
     text-overflow: ellipsis;
-    color: #01b96b;
-    font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: variables.$commentor-name-color;
+    font-family: variables.$font-fam-main;
 }
 
 .comment-menu-space {
@@ -56,16 +58,16 @@
 }
 
 .gallery-comment-body {
-    color: white;
+    color: variables.$white;
 }
 
 .gallery-comment-actions {
     display: flex;
     margin: 4px 0 8px 0;
     align-items: center;
-    color: #b4b9c2;
+    color: variables.$theme;
     font-size: 12px;
-    font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: variables.$font-fam-main;
     line-height: 12px;
 }
 
@@ -74,7 +76,7 @@
     align-items: center;
     border: 0;
     background-color: transparent;
-    color: #b4b9c2;
+    color: variables.$theme;
     outline: 0;
     cursor: pointer;
     padding: 5px;
@@ -89,15 +91,23 @@
 }
 
 .gallery-comment-upvote:hover, .gallery-comment-downvote:hover {
-        background-color: #4a5787;
+    background-color: variables.$reply-hover-color;
 }
 
-.gallery-comment-upvote:hover > svg > path {
-    stroke: #50c878;
+.gallery-comment-upvote:hover {
+    svg {
+        path {
+            stroke: variables.$upvote-button-hover-color;
+        }
+    }
 }
 
-.gallery-comment-downvote:hover > svg > path {
-    stroke: #d35151;
+.gallery-comment-downvote:hover {
+    svg {
+        path {
+            stroke: variables.$downvote-button-hover-color;
+        }
+    }
 }
 
 .load-more {
@@ -113,10 +123,10 @@
     width: 320px;
     height: 46px;
     position: relative;
-    border: 2px solid #4a58fb;
+    border: 2px solid variables.$load-more-button-color;
     border-radius: 3px;
     background-color: transparent;
-    font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: variables.$font-fam-main;
     font-size: 18px;
     line-height: 14px;
     color: #fff;
@@ -130,7 +140,7 @@
 }
 
 .load-more-button:hover {
-    background-color: #4a58fb;
+    background-color: variables.$load-more-button-color;
 }
 
 .button-replies {
@@ -138,7 +148,7 @@
     align-items: center;
     border: 0;
     background-color: transparent;
-    color: #b4b9c2;
+    color: variables.$theme;
     outline: 0;
     cursor: pointer;
     padding: 5px;

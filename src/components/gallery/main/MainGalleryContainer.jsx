@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import EngagementBar from '../engagement-bar/EngagementBar';
-import './MainGalleryContainer.css';
+import './MainGalleryContainer.scss';
 import GalleryHeader from '../header/GalleryHeader';
 import GalleryImage from '../image/GalleryImage';
 import { useParams } from 'react-router-dom';

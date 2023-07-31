@@ -1,19 +1,20 @@
+@use '../../variables' as variables;
+
 .gallery-title {
     font-size: 28px;
     line-height: 130%;
     color: white;
     overflow-wrap: break-word;
-    font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: variables.$font-fam-main;
 }
 
 .title-row {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-}
-
-.title-row > span {
-    min-width: 20px;
+    span {
+        min-width: 20px;
+    }
 }
 
 .author-line {
@@ -34,22 +35,21 @@
 
 .author-name {
     display: flex;
-    color: greenyellow;
+    color: variables.$author-name-color;
     flex-direction: row;
     justify-content: flex-start;
     font-size: 14px;
-    font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: variables.$font-fam-main;
     align-items: center;
 }
 
 .author-meta {
-    font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: #b4b9c2;
+    font-family: variables.$font-fam-main;
+    color: variables.$theme;
     font-size: 12px;
     line-height: 12px;
     margin-top: 4px;
-}
-
-.author-meta > span {
-    margin-right: 8px;
+    span {
+        margin-right: 8px;
+    }
 }

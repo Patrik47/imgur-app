@@ -1,3 +1,5 @@
+@use '../../variables' as variables;
+
 .buttons-bar-container {
     position: sticky;
     top: 200px;
@@ -30,9 +32,9 @@
     font-size: 12px;
     line-height: 12px;
     opacity: 1;
-    font-family: "Proxima Nova Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: variables.$font-fam-main;
     letter-spacing: .05em;
-    color: white;
+    color: variables.$white;
 }
 
 
@@ -78,20 +80,31 @@
     font-size: 12px;
     line-height: 12px;
     padding-top: 6px;
-    font-family: "Proxima Nova Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: variables.$font-fam-main;
     letter-spacing: .05em;
-    color: white;
+    color: variables.$white;
 }
 
-
-#upvote-button:hover > svg > path {
-    stroke: #50c878;
+#upvote-button:hover {
+    svg {
+        path {
+            stroke: variables.$upvote-button-hover-color;
+        }
+    }
 }
 
-#downvote-button:hover > svg > path {
-    stroke: #d35151;
+#downvote-button:hover {
+    svg {
+        path {
+            stroke: variables.$downvote-button-hover-color;
+        }
+    }
 }
 
-#heart-button:hover > svg > path {
-    stroke: rgb(45, 191, 235);
+#heart-button:hover {
+    svg {
+        path {
+            stroke: variables.$heart-button-hover-color;
+        }
+    }
 }

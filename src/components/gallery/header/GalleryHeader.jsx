@@ -1,5 +1,5 @@
 import React from 'react';
-import './GalleryHeader.css';
+import './GalleryHeader.scss';
 import userLogo from '../../../user-avatar.png';
 import formatTimeElapsed from '../functions/formatTimeElapsed';
 import separateNumberDigitsWithComas from '../functions/localeNumber';
