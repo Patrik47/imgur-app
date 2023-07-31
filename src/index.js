@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import getImages from './components/API/getImages';
 // import generatePosts from './components/generate-data';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,4 +18,3 @@ root.render(
 reportWebVitals();
 
 // generatePosts();
-getImages();

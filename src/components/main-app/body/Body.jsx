@@ -32,11 +32,13 @@ function Body(props) {
                 <div
                   key={post.id}
                   className="body-post"
-                  style={{ height: props.masonryLayout ? post.image_height : 250 + 'px' }}>
+                  style={{
+                    height: props.masonryLayout ? post.height - (post.width - 300) : 250 + 'px'
+                  }}>
                   <div className="post-item-container">
                     <div className="post-item-image">
                       <img
-                        src={post.image}
+                        src={post.url}
                         alt="post"
                         width={300}
                         height={100 + '%'}

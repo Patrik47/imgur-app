@@ -1,6 +1,4 @@
-import postsData from '../../posts.json';
-
-function sortAndFilter(mainSelectedOption, alternativeSelectedOption) {
+function sortAndFilter(mainSelectedOption, alternativeSelectedOption, postsData) {
   if (mainSelectedOption === 'USER SUBMITTED' && alternativeSelectedOption === 'POPULAR') {
     // must be user sumbitted and are sorted by views in ascending order
     return postsData

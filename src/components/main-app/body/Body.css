@@ -17,6 +17,7 @@
 .body-post {
     display: block;
     /* height: auto; */
+    min-height: 250px;
     width: 300px;
     margin-bottom: 16px;
     margin-right: 0;

@@ -7,29 +7,70 @@ import { useState, useEffect, useRef } from 'react';
 import sortAndFilter from './sortAndFilter';
 import BackToTop from './footer/BackToTop';
 import useScrollDirection from '../useScrollDirection';
+// import getImages from '../API/getImages';
+import { fakerEN as faker } from '@faker-js/faker';
 
 function MainPage() {
   const [openMainCoverOptions, setOpenMainCoverOptions] = useState(false);
   const [openAdditionalCoverOptions, setOpenAdditionalCoverOptions] = useState(false);
   const [mainSelectedOption, setMainSelectedOption] = useState('MOST VIRAL');
   const [alternativeSelectedOption, setAlternativeSelectedOption] = useState('POPULAR');
-  const [filteredPosts, setFilteredPosts] = useState(
-    sortAndFilter(mainSelectedOption, alternativeSelectedOption)
-  );
   const [startingPos, setStartingPos] = useState(0);
-  const [posts, setPosts] = useState([]);
+  const [allPosts, setAllPosts] = useState([]); // posts all together
+  const [posts, setPosts] = useState([]); // displayed posts
+  const [filteredPosts, setFilteredPosts] = useState([]); // all posts after filter applied;
   const [isThereMore, setIsThereMore] = useState(true);
   const [masonryLayout, setMasonryLayout] = useState(true);
   const previousPosts = usePrevious(posts);
   const previousFilteredPosts = usePrevious(filteredPosts);
   const isHidden = useScrollDirection();
 
+  const fetchImages = () => {
+    const url = `https://api.thecatapi.com/v1/images/search?limit=100`;
+    const api_key = 'live_OkgDAFfCVmtyTyzZpjJpwx8zsUT7sjU0hTuTKQznJjP6GKmCPr8vA8QtblME4KMp';
+    fetch(url, {
+      headers: {
+        'x-api-key': api_key
+      }
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        let imagesData = data;
+        for (let i = 0; i < imagesData.length; i++) {
+          imagesData[i].title = faker.word.words(Math.floor(Math.random() * 3) + 5);
+          imagesData[i].author = faker.person.fullName();
+          imagesData[i].device = faker.helpers.arrayElement(['Android', 'iPhone', 'Web']);
+          imagesData[i].long_description = faker.word.words(Math.floor(Math.random() * 50) + 10);
+          imagesData[i].user_submitted = faker.datatype.boolean();
+          imagesData[i].upvotes = faker.number.int({ min: -10, max: 150000 });
+          imagesData[i].number_of_comments = faker.number.int({ min: 0, max: 150 });
+          imagesData[i].date = faker.date.between({
+            from: '2020-01-01T00:00:00.000Z',
+            to: '2023-07-27T00:00:00.000Z'
+          });
+          imagesData[i].views = faker.number.int({ min: 0, max: 150000 });
+        }
+        setAllPosts(imagesData);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   useEffect(() => {
-    fetchData();
+    fetchImages();
   }, []);
 
   useEffect(() => {
-    setFilteredPosts(sortAndFilter(mainSelectedOption, alternativeSelectedOption));
+    if (allPosts.length !== 0) {
+      setFilteredPosts(sortAndFilter(mainSelectedOption, alternativeSelectedOption, allPosts));
+    }
+  }, [allPosts]);
+
+  useEffect(() => {
+    setFilteredPosts(sortAndFilter(mainSelectedOption, alternativeSelectedOption, allPosts));
     setStartingPos(0);
     setIsThereMore(true);
     setPosts([]);
