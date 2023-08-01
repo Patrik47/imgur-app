@@ -6,6 +6,7 @@ import GalleryImage from '../image/GalleryImage';
 import { useParams } from 'react-router-dom';
 import GalleryCommentSection from '../comment-section/GalleryCommentSection';
 import Spinner from '../../spinners/Spinner';
+import SideBar from '../side-bar/SideBar';
 
 function MainGalleryContainer() {
   const params = useParams();
@@ -55,12 +56,15 @@ function MainGalleryContainer() {
                 <GalleryHeader data={postData} />
               </div>
               <div
-                className="gallety-image-container"
+                className="gallery-image-container"
                 style={{ display: image === [] ? 'none' : null }}>
                 <GalleryImage image={image.url} />
               </div>
               <GalleryCommentSection commentsTotal={postData.number_of_comments} />
             </div>
+          </div>
+          <div className="gallery-side-bar">
+            <SideBar />
           </div>
         </>
       ) : (

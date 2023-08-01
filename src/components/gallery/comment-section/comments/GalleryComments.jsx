@@ -92,7 +92,7 @@ function GalleryComments(props) {
                   <hr
                     style={{
                       borderColor: '#4a5787',
-                      width: 75 + '%',
+                      width: 100 + '%',
                       maxWidth: 800 + 'px',
                       marginLeft: 0
                     }}></hr>
