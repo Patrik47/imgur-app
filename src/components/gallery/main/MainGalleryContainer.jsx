@@ -59,15 +59,12 @@ function MainGalleryContainer() {
                 style={{ display: image === [] ? 'none' : null }}>
                 <GalleryImage image={image.url} />
               </div>
-              <GalleryCommentSection
-                numberOfComments={postData.number_of_comments}
-                postID={postData.altID}
-              />
+              <GalleryCommentSection commentsTotal={postData.number_of_comments} />
             </div>
           </div>
         </>
       ) : (
-        <div className="spinner">
+        <div className="spinner" style={{ backgroundColor: '#1d2951', height: 100 + 'vh' }}>
           <ClipLoader
             color={'#b4b9c2'}
             loading={true}

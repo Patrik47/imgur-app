@@ -2,23 +2,21 @@ import React, { useState } from 'react';
 import ExpandAll from '../../icons/ExpandAll';
 import CollapseAll from '../../icons/CollapseAll';
 import { useEffect } from 'react';
-import CommentsData from '../../../comments.json';
 import DropDownTriangle from '../../icons/DropDownTriangle';
 import GalleryComments from './comments/GalleryComments';
 import './GalleryCommentSection.scss';
+import generateComments from '../../generateComments';
 
 function GalleryCommentSection(props) {
   const [areRepliesExpanded, setAreRepliesExpanded] = useState(false);
   const [areAllCommentsLoaded, setAreAllCommentsLoaded] = useState(false);
-  const [comments, setComments] = useState(
-    CommentsData.filter((comment) => comment.post_id === props.postID).slice(0, 5)
-  );
+  const [comments, setComments] = useState(generateComments(props.commentsTotal).slice(0, 5));
 
   useEffect(() => {
     if (areAllCommentsLoaded) {
-      setComments(CommentsData.filter((comment) => comment.post_id === props.postID));
+      setComments(generateComments(props.commentsTotal));
     } else {
-      setComments(CommentsData.filter((comment) => comment.post_id === props.postID).slice(0, 5));
+      setComments(generateComments(props.commentsTotal).slice(0, 5));
     }
   }, [areAllCommentsLoaded]);
 

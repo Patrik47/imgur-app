@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import generatePosts from './components/generate-data-script';
+// import generateComments from './components/generateComments';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,3 +19,5 @@ root.render(
 reportWebVitals();
 
 // generatePosts();
+
+// generateComments(20);
