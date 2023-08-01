@@ -5,7 +5,7 @@ import GalleryHeader from '../header/GalleryHeader';
 import GalleryImage from '../image/GalleryImage';
 import { useParams } from 'react-router-dom';
 import GalleryCommentSection from '../comment-section/GalleryCommentSection';
-import { ClipLoader } from 'react-spinners';
+import Spinner from '../../spinners/Spinner';
 
 function MainGalleryContainer() {
   const params = useParams();
@@ -64,15 +64,7 @@ function MainGalleryContainer() {
           </div>
         </>
       ) : (
-        <div className="spinner" style={{ backgroundColor: '#1d2951', height: 100 + 'vh' }}>
-          <ClipLoader
-            color={'#b4b9c2'}
-            loading={true}
-            size={150}
-            aria-label="Loading Spinner"
-            data-testid="loader"
-          />
-        </div>
+        <Spinner />
       )}
     </div>
   );

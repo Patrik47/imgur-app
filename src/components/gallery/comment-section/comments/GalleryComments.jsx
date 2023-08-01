@@ -8,7 +8,7 @@ import UpvoteSmall from '../../../icons/UpvoteSmall';
 import DownvoteSmall from '../../../icons/DownvoteSmall';
 import ChevronDown from '../../../icons/ChevronDown';
 import RepliesHandler from '../replies/RepliesHandler';
-import { ClipLoader } from 'react-spinners';
+import Spinner from '../../../spinners/Spinner';
 
 function GalleryComments(props) {
   const [expandedComments, setExpandedComments] = useState([]);
@@ -116,15 +116,7 @@ function GalleryComments(props) {
           </div>
         </>
       ) : (
-        <div className="spinner">
-          <ClipLoader
-            color={'#b4b9c2'}
-            loading={true}
-            size={150}
-            aria-label="Loading Spinner"
-            data-testid="loader"
-          />
-        </div>
+        <Spinner />
       )}
     </div>
   );

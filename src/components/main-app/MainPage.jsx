@@ -7,7 +7,7 @@ import sortAndFilter from './sortAndFilter';
 import BackToTop from './footer/BackToTop';
 import useScrollDirection from '../useScrollDirection';
 import { fakerEN as faker } from '@faker-js/faker';
-import { ClipLoader } from 'react-spinners';
+import Spinner from '../spinners/Spinner';
 
 function MainPage() {
   const [openMainCoverOptions, setOpenMainCoverOptions] = useState(false);
@@ -168,15 +168,7 @@ function MainPage() {
           masonryLayout={masonryLayout}
         />
       ) : (
-        <div className="spinner">
-          <ClipLoader
-            color={'#b4b9c2'}
-            loading={true}
-            size={150}
-            aria-label="Loading Spinner"
-            data-testid="loader"
-          />
-        </div>
+        <Spinner />
       )}
       <Footer isHidden={isHidden} />
       <BackToTop isHidden={isHidden} />
