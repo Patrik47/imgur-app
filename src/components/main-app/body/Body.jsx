@@ -33,7 +33,7 @@ function Body(props) {
                   key={post.id}
                   className="body-post"
                   style={{
-                    height: props.masonryLayout ? post.height - (post.width - 300) : 250 + 'px'
+                    height: props.masonryLayout ? 'fit-content' : 250 + 'px'
                   }}>
                   <div className="post-item-container">
                     <div className="post-item-image">
