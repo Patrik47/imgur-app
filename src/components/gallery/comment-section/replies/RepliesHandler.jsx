@@ -17,7 +17,7 @@ function RepliesHandler(props) {
         type="button"
         className="button-replies"
         style={{
-          display: !props.isInArray(props.comment) ? 'none' : null
+          display: !props.isInArray(props.comment) || props.repliesNumber === 0 ? 'none' : null
         }}
         onClick={() => props.addOrRemove(props.comment)}>
         | - Collapse replies

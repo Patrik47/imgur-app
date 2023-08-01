@@ -4,12 +4,13 @@ import './MainGalleryContainer.scss';
 import GalleryHeader from '../header/GalleryHeader';
 import GalleryImage from '../image/GalleryImage';
 import { useParams } from 'react-router-dom';
-import loadPostData from '../functions/LoadPostData';
 import GalleryCommentSection from '../comment-section/GalleryCommentSection';
+import { ClipLoader } from 'react-spinners';
 
 function MainGalleryContainer() {
   const params = useParams();
   const [image, setImage] = useState([]);
+  const [postData, setPostData] = useState(undefined);
 
   const fetchImage = () => {
     const url = `https://api.thecatapi.com/v1/images/` + params.postID;
@@ -23,7 +24,6 @@ function MainGalleryContainer() {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         setImage(data);
       })
       .catch(function (error) {
@@ -35,29 +35,48 @@ function MainGalleryContainer() {
     fetchImage();
   }, []);
 
-  const postData = loadPostData(Number(params.altID))[0];
-  // console.log(postData);
+  useEffect(() => {
+    let data = localStorage.getItem('post');
+    if (data !== undefined) {
+      setPostData(JSON.parse(data));
+    }
+  }, [image]);
+
   return (
     <div className="main-gallery-container">
-      <div className="gallery-buttons-bar">
-        <EngagementBar data={postData} />
-      </div>
-      <div className="gallery-wrapper">
-        <div className="gallery-content">
-          <div className="gallery-description">
-            <GalleryHeader data={postData} />
+      {postData ? (
+        <>
+          <div className="gallery-buttons-bar">
+            <EngagementBar data={postData} />
           </div>
-          <div
-            className="gallety-image-container"
-            style={{ display: image === [] ? 'none' : null }}>
-            <GalleryImage image={image.url} />
+          <div className="gallery-wrapper">
+            <div className="gallery-content">
+              <div className="gallery-description">
+                <GalleryHeader data={postData} />
+              </div>
+              <div
+                className="gallety-image-container"
+                style={{ display: image === [] ? 'none' : null }}>
+                <GalleryImage image={image.url} />
+              </div>
+              <GalleryCommentSection
+                numberOfComments={postData.number_of_comments}
+                postID={postData.altID}
+              />
+            </div>
           </div>
-          <GalleryCommentSection
-            numberOfComments={postData.number_of_comments}
-            postID={postData.id}
+        </>
+      ) : (
+        <div className="spinner">
+          <ClipLoader
+            color={'#b4b9c2'}
+            loading={true}
+            size={150}
+            aria-label="Loading Spinner"
+            data-testid="loader"
           />
         </div>
-      </div>
+      )}
     </div>
   );
 }

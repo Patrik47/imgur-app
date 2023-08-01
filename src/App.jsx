@@ -8,7 +8,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/gallery/:postID/:altID" element={<Gallery />} />
+        <Route path="/gallery/:postID" element={<Gallery />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>

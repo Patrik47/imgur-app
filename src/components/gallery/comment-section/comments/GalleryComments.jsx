@@ -100,7 +100,9 @@ function GalleryComments(props) {
           );
         })}
       </div>
-      <div className="load-more" style={{ display: props.allCommentsLoaded ? 'none' : null }}>
+      <div
+        className="load-more"
+        style={{ display: props.allCommentsLoaded || props.comments.length < 5 ? 'none' : null }}>
         <div className="load-more-container">
           <button className="load-more-button" onClick={() => props.handleCommentsLoadedEvent()}>
             Load more commments

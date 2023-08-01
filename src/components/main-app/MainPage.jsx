@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './MainPage.scss';
 import Header from './header/Header';
 import Body from './body/Body';
 import Footer from './footer/Footer';
-import { useState, useEffect, useRef } from 'react';
 import sortAndFilter from './sortAndFilter';
 import BackToTop from './footer/BackToTop';
 import useScrollDirection from '../useScrollDirection';
@@ -50,8 +49,8 @@ function MainPage() {
           imagesData[i].upvotes = faker.number.int({ min: -10, max: 150000 });
           imagesData[i].number_of_comments = faker.number.int({ min: 0, max: 150 });
           imagesData[i].date = faker.date.between({
-            from: '2020-01-01T00:00:00.000Z',
-            to: '2023-07-27T00:00:00.000Z'
+            from: '2022-01-01T00:00:00.000Z',
+            to: '2023-08-02T00:00:00.000Z'
           });
           imagesData[i].views = faker.number.int({ min: 0, max: 150000 });
         }
