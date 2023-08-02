@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './SideBar.scss';
 import generateRandomPosts from '../functions/generateRandomPost';
+import SideBarImage from '../side-bar-image/SideBarImage';
 
 function SideBar() {
   const [randomPosts, setRandomPosts] = useState([]);
@@ -17,10 +18,7 @@ function SideBar() {
           {randomPosts.map((randomPost, i) => {
             return (
               <div className="random-post-container" key={i}>
-                <div className="random-post-image">
-                  <img src={randomPost.url} alt="random_post"></img>
-                </div>
-                <div className="random-post-text">{randomPost.text}</div>
+                <SideBarImage />
               </div>
             );
           })}
