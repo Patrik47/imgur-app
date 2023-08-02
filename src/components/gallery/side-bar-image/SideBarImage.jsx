@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './SideBarImage.scss';
 import { fakerEN as faker } from '@faker-js/faker';
-import Spinner from '../../spinners/Spinner';
+import { ClipLoader } from 'react-spinners';
 
 export default function SideBarImage() {
   const [image, setImage] = useState();
@@ -72,7 +72,15 @@ export default function SideBarImage() {
           <div className="random-post-text">{image.title}</div>
         </>
       ) : (
-        <Spinner />
+        <div className="small-spinner">
+          <ClipLoader
+            color={'#b4b9c2'}
+            loading={true}
+            size={40}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
       )}
     </>
   );
