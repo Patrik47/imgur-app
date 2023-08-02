@@ -66,7 +66,12 @@ export default function SideBarImage() {
     <>
       {loadingComplete ? (
         <>
-          <div className="random-post-image">
+          <div
+            className="random-post-image"
+            onClick={() => {
+              localStorage.setItem('post', JSON.stringify(image));
+              window.location.href = '/gallery/' + image.id;
+            }}>
             <img src={image.url} alt="random_post"></img>
           </div>
           <div className="random-post-text">{image.title}</div>

@@ -1,3 +1,5 @@
+@use '../../variables' as variables;
+
 .sidebar-container {
     min-height: 1000px;
     min-width: 300px;
@@ -35,4 +37,8 @@
     span {
         margin-left: 10px;
     }
+}
+
+.random-post-container:hover {
+    background-color: variables.$reply-hover-color;
 }
