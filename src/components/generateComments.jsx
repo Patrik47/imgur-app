@@ -64,18 +64,22 @@ function generateComments(commentsTotal) {
   let comments = [];
   for (let i = 1; i <= commentsTotal; i++) {
     let replies = [];
-    const repliesTotal = faker.number.int({ min: 0, max: commentsTotal - i });
-    for (let k = 1; k <= repliesTotal; k++) {
-      replies.push({
-        author: faker.person.fullName(),
-        device: faker.helpers.arrayElement(['Android', 'iPhone', 'Web']),
-        date_published: faker.date.between({
-          from: '2020-01-01T00:00:00.000Z',
-          to: '2023-07-27T00:00:00.000Z'
-        }),
-        comment: faker.word.words(Math.floor(Math.random() * 10) + 5),
-        upvotes: faker.number.int({ min: -10, max: 10000 })
-      });
+    const repliesTotal = faker.number.int({ min: 0, max: 7 });
+    let repliesGenerated = 0;
+    if (commentsTotal - i > repliesTotal || repliesTotal === 0) {
+      for (let k = 1; k <= repliesTotal; k++) {
+        replies.push({
+          author: faker.person.fullName(),
+          device: faker.helpers.arrayElement(['Android', 'iPhone', 'Web']),
+          date_published: faker.date.between({
+            from: '2020-01-01T00:00:00.000Z',
+            to: '2023-07-27T00:00:00.000Z'
+          }),
+          comment: faker.word.words(Math.floor(Math.random() * 10) + 5),
+          upvotes: faker.number.int({ min: -20, max: 10000 })
+        });
+      }
+      repliesGenerated = repliesTotal;
     }
     comments.push({
       comment_id: i,
@@ -89,7 +93,7 @@ function generateComments(commentsTotal) {
       upvotes: faker.number.int({ min: -10, max: 10000 }),
       replies: replies
     });
-    i = i + repliesTotal;
+    i = i + repliesGenerated;
   }
   return comments;
 }
